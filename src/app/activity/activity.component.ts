@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ApplyActivityComponent } from '../apply-activity/apply-activity.component';
 import { ChatComponent } from '../chat/chat.component';
 import { CreateactivityComponent } from '../createactivity/createactivity.component';
 import { CreatefeedService } from '../createfeed.service';
@@ -41,6 +42,12 @@ export class ActivityComponent {
     this.feed.getAll().subscribe(response=>{
       this.activities=response;
     });
+  }
+
+  opendialogforapply(){
+    const diag = this.dialog.open(ApplyActivityComponent, {
+      width: '600px',
+    })
   }
 
 

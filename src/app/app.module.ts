@@ -49,6 +49,12 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MyActivitiesComponent } from './my-activities/my-activities.component';
+import { ApplyActivityComponent } from './apply-activity/apply-activity.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import { ApplicantsComponent } from './applicants/applicants.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -70,6 +76,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     EquipmentComponent,
     ActivityComponent,
     CreateactivityComponent,
+    MyActivitiesComponent,
+    ApplyActivityComponent,
+    ApplicantsComponent,
     
     
     
@@ -90,7 +99,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatCardModule,
     MatProgressBarModule,
     MatToolbarModule,
-
+    MatIconModule,
+    MatMenuModule,
+    MatTableModule,
     
     
     
@@ -115,6 +126,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
       {path: 'equipments', component: EquipmentComponent},
       {path:'activity', component: ActivityComponent},
       {path: 'createactivity', component: CreateactivityComponent},
+      {path: 'myactivity', component:MyActivitiesComponent},
      
  
   ]),

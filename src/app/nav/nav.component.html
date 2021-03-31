@@ -96,6 +96,7 @@
 
       <a href="feed"><span>Squad IN</span></a>
       <div class="spacer"> </div>
+      <a style="color: rgb(255, 255, 255);" class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/myactivity">My Activity<span class="sr-only"></span></a>
       <a style="color: rgb(255, 255, 255);" class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/chat">Chat<span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/feed">Feed<span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/watchplayer"> Hire Player <span class="sr-only"></span></a>

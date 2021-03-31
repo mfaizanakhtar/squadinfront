@@ -27,12 +27,20 @@
                                     <mat-card-subtitle>{{activity.userid.userType}}</mat-card-subtitle>
 
 
-                                    <button style="background-color: blueviolet; "
-                                          class="btn btn-sm btn-primary pull-right" (click)="openDialog()"
-                                          type="submit"><i class="fa fa-pencil fa-fw"></i>Create
-                                          Activity</button>
-
-
+                                    <button mat-icon-button [matMenuTriggerFor]="menu"
+                                          aria-label="Example icon-button with a menu">
+                                          <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                          <button mat-menu-item>
+                                                <mat-icon>remove_done</mat-icon>
+                                                <span>Remove</span>
+                                          </button>
+                                          <button mat-menu-item>
+                                                <mat-icon>edit_not</mat-icon>
+                                                <span>Edit post</span>
+                                          </button>
+                                    </mat-menu>
                               </mat-card-header>
                         </div>
 
@@ -45,12 +53,12 @@
                               <button mat-button color="primary">LIKE</button>
                               <button mat-button color="primary">SHARE</button>
                               <!-- <button mat-raised-button color="primary" (click)="openDialog()">Create Activity</button> -->
-                        </mat-card-actions>
-                        <div style="display: flex;">
-                              <textarea style="width: 80%;"></textarea>
-                              <button style="margin-left: 15px;" mat-raised-button color="accent">Respond</button>
+                              <button (click)="opendialogforapply()" style="margin-left: 15px;" mat-raised-button
+                                    color="accent">Respond</button>
 
-                        </div>
+
+                        </mat-card-actions>
+
                   </mat-card>
             </div>
 
