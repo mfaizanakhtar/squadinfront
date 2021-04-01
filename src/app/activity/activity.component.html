@@ -44,10 +44,19 @@
                               </mat-card-header>
                         </div>
 
-                        <mat-card-content>
-                              <p>
-                                    {{activity.ActivityDescription}}
-                              </p>
+                        <mat-card-content style="margin-top: 20px; margin-bottom: 30px;">
+                              <div>
+                              <mat-tab-group  >
+                                    <mat-tab style="width: 100%;" label="Name of activity"> 
+                                          <div class="content">Content 1 </div></mat-tab>
+                                    <mat-tab label="Sport"> Content 1 </mat-tab>
+                                    <mat-tab label="No of Player"> Content 2 </mat-tab>
+                                    <mat-tab label="Date"> Content 3 </mat-tab>
+                                    <mat-tab label="Description"><div class="content"> {{activity.ActivityDescription}}</div></mat-tab>
+                                  </mat-tab-group>
+                              </div>
+                         
+
                         </mat-card-content>
                         <mat-card-actions>
                               <button mat-button color="primary">LIKE</button>

@@ -3,18 +3,38 @@
 <div class="container">
     <h1 style="padding-bottom: 100px;">Create Activity</h1>
     
-    <mat-form-field class="field" appearance="fill">
-        <mat-label>Name Of Activity</mat-label>
+    <mat-form-field class="example-full-width">
+        <mat-label>Name of activity</mat-label>
         <input matInput type="text" [(ngModel)]='activityname'/>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
+      </mat-form-field>
+
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Sport</mat-label>
+        <input matInput >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>No of players</mat-label>
+        <input matInput >
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    
+      
+    <mat-form-field >
         <mat-label>Description</mat-label>
         <textarea matInput [(ngModel)]='description'></textarea>
       </mat-form-field>
+      
 
 
-
+    
 
 
 

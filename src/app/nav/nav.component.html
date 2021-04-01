@@ -101,6 +101,11 @@
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/feed">Feed<span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/watchplayer"> Hire Player <span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" [routerLink]="['/showstats',userid]">Watch Stats<span class="sr-only"></span></a>
+      <a ><mat-icon matBadgeSize= 'small' matBadge="1" matBadgeColor="warn">notification_important</mat-icon></a>
+   
+    <span class="cdk-visually-hidden">
+      
+    </span>
     </mat-toolbar>
 
   </nav>

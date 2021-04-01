@@ -55,6 +55,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule,} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -102,6 +107,12 @@ import {MatTableModule} from '@angular/material/table';
     MatIconModule,
     MatMenuModule,
     MatTableModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule, 
+    MatTabsModule,
+    MatBadgeModule,
+    
     
     
     
@@ -127,6 +138,7 @@ import {MatTableModule} from '@angular/material/table';
       {path:'activity', component: ActivityComponent},
       {path: 'createactivity', component: CreateactivityComponent},
       {path: 'myactivity', component:MyActivitiesComponent},
+
      
  
   ]),
