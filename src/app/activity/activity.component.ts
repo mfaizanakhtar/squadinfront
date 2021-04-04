@@ -17,6 +17,7 @@ import { SignupComponent } from '../signup/signup.component';
 })
 export class ActivityComponent {
   activities:any;
+  date;
   
   constructor(public dialog: MatDialog,private feed:CreatefeedService) { }
 
@@ -39,14 +40,16 @@ export class ActivityComponent {
   }
 
   getFeed(){
-    this.feed.getAll().subscribe(response=>{
+    this.feed.getcap('all').subscribe(response=>{
       this.activities=response;
+      
+
     });
   }
 
-  opendialogforapply(){
+  opendialogforapply(id){
     const diag = this.dialog.open(ApplyActivityComponent, {
-      width: '600px',
+      width: '600px',data:{activityid:id}
     })
   }
 

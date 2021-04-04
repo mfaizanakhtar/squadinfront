@@ -48,10 +48,10 @@
                               <div>
                               <mat-tab-group  >
                                     <mat-tab style="width: 100%;" label="Name of activity"> 
-                                          <div class="content">Content 1 </div></mat-tab>
-                                    <mat-tab label="Sport"> Content 1 </mat-tab>
-                                    <mat-tab label="No of Player"> Content 2 </mat-tab>
-                                    <mat-tab label="Date"> Content 3 </mat-tab>
+                                          <div class="content">{{activity.Activityname}}</div></mat-tab>
+                                    <mat-tab label="Sport">{{activity.sport}}</mat-tab>
+                                    <mat-tab label="No of Player">{{activity.NoOfPlayers}}</mat-tab>
+                                    <mat-tab label="Date">{{activity.TimeStamp}}</mat-tab>
                                     <mat-tab label="Description"><div class="content"> {{activity.ActivityDescription}}</div></mat-tab>
                                   </mat-tab-group>
                               </div>
@@ -62,7 +62,7 @@
                               <button mat-button color="primary">LIKE</button>
                               <button mat-button color="primary">SHARE</button>
                               <!-- <button mat-raised-button color="primary" (click)="openDialog()">Create Activity</button> -->
-                              <button (click)="opendialogforapply()" style="margin-left: 15px;" mat-raised-button
+                              <button (click)="opendialogforapply(activity._id)" style="margin-left: 15px;" mat-raised-button
                                     color="accent">Respond</button>
 
 

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit,Inject } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { RespondactivityService } from '../respondactivity.service';
 
 @Component({
   selector: 'app-applicants',
@@ -14,14 +16,22 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ],
 })
 export class ApplicantsComponent implements OnInit {
-  
+  applicants:any
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
+  columnsToDisplay = ['name', 'Experience', 'Address', 'Description'];
   expandedElement: PeriodicElement | null;
   
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {activityid:String},private response:RespondactivityService) { }
 
   ngOnInit(): void {
+    this.getApplicants()
+  }
+
+  getApplicants(){
+    this.response.getcap('feed/'+this.data.activityid).subscribe(res=>{
+      this.applicants = res
+      console.log(this.applicants)
+    })
   }
 
 }

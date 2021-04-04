@@ -11,6 +11,9 @@ import { AuthService } from '../services/auth.service';
 export class CreateactivityComponent implements OnInit {
   description:any
   activityname:any
+  sport:any
+  NoOfPlayers:any
+
   constructor(private feed:CreatefeedService,private auth:AuthService) { }
 
   ngOnInit(): void {
@@ -20,11 +23,14 @@ export class CreateactivityComponent implements OnInit {
     this.feed.create({
       userid:this.auth.getCurrentUser()._id,
       Activityname:this.activityname,
+      sport:this.sport,
+      NoOfPlayers:this.NoOfPlayers,
       ActivityDescription:this.description,
       TimeStamp:new Date()
     }).subscribe(response=>{
       console.log(response);
     })
+    // console.log(this.description,this.activityname,this.sport,this.NoOfPlayers)
   }
 
 }
