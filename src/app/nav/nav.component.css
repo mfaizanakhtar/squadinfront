@@ -5,3 +5,17 @@ a{
     color: white;
     font-size: 11pt;
 }
+.nav-update{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.logo{
+margin-left: 20px;
+}
+
+.icons{
+    justify-content: center;
+    align-items: center;
+margin-right: 20px;
+}

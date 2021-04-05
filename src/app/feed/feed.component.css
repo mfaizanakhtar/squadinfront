@@ -30,9 +30,10 @@ body{
 	margin-right: 20PX;
 	margin-top: 50px;
 	padding-bottom: 10px;
+	height: 300px;
 }
 
-.card-container .pro {
+/* .card-container .pro {
 	color: #231E39;
 	background-color: #e7d2ff;
 	border-radius: 3px;
@@ -42,7 +43,7 @@ body{
 	position: absolute;
 	top: 30px;
 	left: 30px;
-}
+} */
 
 .card-container .round {
 	border: 1px solid #7103cb;

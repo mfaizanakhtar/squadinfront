@@ -1,5 +1,5 @@
 .example-card {
-    min-width: 400px;
+   min-width: 400px;
     margin-top: 50px;
 
   }
@@ -10,10 +10,21 @@
   }
   .container{
     background-color: #f3f2ef;
-    height: 100vh;
+    height: 100%;
+    /* width: 700px; */
   }
   h1{
       margin-top: 10px;
       padding-top: 20px;
       text-align: center;
+  }
+  .main{
+    display:grid;
+    grid-template-columns: auto auto 500px;
+    padding: 10px;
+	  background-color: #f3f2ef;
+    justify-self: center;
+  }
+  .update{
+    width: 300px;
   }

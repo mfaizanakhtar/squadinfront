@@ -1,5 +1,10 @@
 <app-nav></app-nav>
+<div class="main" >
+  <div>
+  
+  </div>
 <div class="container">
+
     <h1>My Activities</h1>
     <mat-card *ngFor="let a of activity" class="example-card">
         <mat-card-header>
@@ -10,14 +15,30 @@
         
         <mat-card-content>
           <p>
-            Activity Name:{{a.Activityname}}
-            Activity Description:{{a.ActivityDescription}}
-            Sport:{{a.sport}}
-            No Of Players:{{a.NoOfPlayers}}
-          </p>
+            Activity Name:{{a.Activityname}} </p>
+           <p> Activity Description:{{a.ActivityDescription}}</p>
+          <p> Sport:{{a.sport}}</p>
+         <p>   No Of Players:{{a.NoOfPlayers}}</p>
+          
         </mat-card-content>
         <mat-card-actions>
             <button (click)="open(a._id)" mat-stroked-button>View Applicants</button>
         </mat-card-actions>
       </mat-card>
+</div>
+<div class="update"> 
+  <h1>updates</h1>
+  <Div class="mat-card" style="margin-top: 50px;">
+    <h2>
+     name
+    </h2>
+    <p>
+      Description
+    </p>
+  </Div>
+  <h2>
+    <p></p>
+  </h2>
+  
+</div>
 </div>

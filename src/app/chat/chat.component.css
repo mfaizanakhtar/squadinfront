@@ -1,6 +1,13 @@
 .row.row-broken {
     padding-bottom: 0;
 }
+
+.container{
+
+    margin-top: 50px;
+    background-color: rgb(255, 255, 255);
+}
+
 .navbar {
     background: #0d47a1;
     border: none;

@@ -60,6 +60,7 @@ import {MatDatepickerModule,} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
+import { ReplyApplicationsComponent } from './reply-applications/reply-applications.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     MyActivitiesComponent,
     ApplyActivityComponent,
     ApplicantsComponent,
+    ReplyApplicationsComponent,
     
     
     
