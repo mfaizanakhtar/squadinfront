@@ -19,18 +19,23 @@ export class FeedComponent implements OnInit {
     private auth: AuthService,
     private service: UserService,
     private http: Http
-  ) { 
-    http.get('http.//localhost:3000/api/users/' + auth.getCurrentUser()._id).subscribe(response =>{
-      this.user = response.json();
-      console.log(this.user);
-      this.data = response.json();
-    })
+  ) 
+  { 
+    // http.get('http.//localhost:3000/api/users/' + auth.getCurrentUser()._id).subscribe(response =>{
+    //   this.user = response.json();
+    //   console.log(this.user);
+    //   this.data = response.json();
+    // })
   }
 
   ngOnInit(): void {
     this.service.getAll().subscribe(data => {
       this.data = data;
     })
+
+    this.user = this.auth.getCurrentUser()
+    console.log(this.user)
   }
+  
 
 }

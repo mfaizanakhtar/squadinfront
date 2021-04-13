@@ -1,4 +1,5 @@
 import {Component, Inject} from '@angular/core';
+import { Http } from '@angular/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ApplyActivityComponent } from '../apply-activity/apply-activity.component';
 import { ChatComponent } from '../chat/chat.component';
@@ -19,7 +20,7 @@ export class ActivityComponent {
   activities:any;
   date;
   
-  constructor(public dialog: MatDialog,private feed:CreatefeedService) { }
+  constructor(private http:Http,public dialog: MatDialog,private feed:CreatefeedService) { }
 
   ngOnInit(): void {
     this.getFeed();
@@ -51,6 +52,15 @@ export class ActivityComponent {
     const diag = this.dialog.open(ApplyActivityComponent, {
       width: '600px',data:{activityid:id}
     })
+  }
+
+  remove(activity){
+    this.http.delete("http://localhost:3000/api/feed/feed/"+activity._id)
+    .subscribe(res=>{
+      console.log(res)
+      this.getFeed()
+    })
+    // console.log(activity)
   }
 
 

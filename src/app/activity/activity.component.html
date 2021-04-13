@@ -32,7 +32,7 @@
                                           <mat-icon>more_vert</mat-icon>
                                     </button>
                                     <mat-menu #menu="matMenu">
-                                          <button mat-menu-item>
+                                          <button (click)="remove(activity)" mat-menu-item>
                                                 <mat-icon>remove_done</mat-icon>
                                                 <span>Remove</span>
                                           </button>
