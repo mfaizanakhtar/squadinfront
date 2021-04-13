@@ -104,11 +104,22 @@
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/feed">FEED<span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/watchplayer"> RECRUIT <span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" [routerLink]="['/showstats',userid]">STATS<span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/equipment">EQUIPMENT<span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/addjob"> Organize Events <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/watchplayer"> Watch Player <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/addjob"> Event Analytics <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/chat"> Chat Room <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/watchplayer"> Hire Player <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/userdashboard">Add Trails <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/chat"> Chat Room <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/navbar">Home <span class="sr-only"></span></a>
     </div>
 
-    <div class="icons">
+    <div class="icons" style="display: flex;">
      
       <a href="#"><mat-icon matBadgeSize= 'small' matBadge="2" matBadgeColor="warn">notification_important</mat-icon></a>
+      <a class="dropdown-item" routerLink="/login">Logout</a>
+      <a class="dropdown-item" routerLink="/userprofile">Profile</a>
     </div>
     </div>
 

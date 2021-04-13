@@ -8,8 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { EquipService } from '../equip.service';
 import { httpFactory } from '@angular/http/src/http_module';
-import { Inject} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
+import { UploadEquipmentComponent } from '../upload-equipment/upload-equipment.component';
 
 export interface DialogData {
   animal: string;
@@ -22,46 +24,56 @@ export interface DialogData {
   styleUrls: ['./equipment.component.css']
 })
 export class EquipmentComponent implements OnInit {
-  animal: string;
+
   name: string;
-equipment: any = [];
-data=[]
-id= 1;
+  equipment: any = [];
+  data = []
+  id = 1;
+  user;
+  profile;
   constructor(
     public dialog: MatDialog,
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private service: EquipService,
     private router: Router,
-    private http:Http
-  )
-  
-  
-  
-  
-  {{
-    http.get('http://localhost:3000/api/equipments/equipment').subscribe(response=>
+    private http: Http,
+    private auth:AuthService,
+    
+  ) {
     {
-      this.equipment=response.json();
-      console.log(this.equipment);
-      this.data= response.json();
-    })
-  } }
-  
+      http.get('http://localhost:3000/api/equipments/equipment').subscribe(response => {
+        this.equipment = response.json();
+        console.log(this.equipment);
+        this.data = response.json();
+      })
+    }
+  }
+
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(data=>{
+
+
+
+    this.route.params.subscribe(params=>{
+      this.user = params['id'];
+      this.DataAdd('all');
+      console.log(this.user);
+
+    })
+    this.service.getAll().subscribe(data => {
       this.data = data;
     })
-    
+
   }
-  addEquipment(sf){
+  addEquipment(sf) {
     // this.router.navigate(['/dashboard']);
     console.log('asd')
     alert("Equipments Added");
     console.log('asd')
     console.log(sf.value);
-    let equipment = {      
+    let equipment = {
+      userid:this.auth.getCurrentUser()._id,
       equipmentname: sf.value.registeration.eqname,
       EquipmentCategory: sf.value.registeration.equipmentcategory,
       quantity: sf.value.registeration.quantity,
@@ -70,20 +82,52 @@ id= 1;
 
 
     }
-    this.service.create(equipment).subscribe(data =>{
+    this.service.create(equipment).subscribe(data => {
       this.toastr.success(`equipment ${data.equipmentname} added for sell`);
 
     },
-    (error: AppError)=>{
-      if(error instanceof BadInput)
-      this.toastr.error('incorrect Inputs');
-      else
-      throw error;
-    }
+      (error: AppError) => {
+        if (error instanceof BadInput)
+          this.toastr.error('incorrect Inputs');
+        else
+          throw error;
+      }
     )
     sf.reset();
   }
- 
+  clicked(sport) {
+    console.log(sport);
+    this.DataAdd(sport);
 
+  }
+
+  DataAdd(sport){
+  
+    if(sport == 'all')
+    {
+      console.log(this.user)
+      this.http.get('http://localhost:3000/api/equipments/equipment'+this.user).subscribe(response => {
+        this.profile=response.json();
+        console.log(this.profile);
+      }
+    )
+    }
+  
+    else{
+      this.http.post('http://localhost:3000/api/equipments/sport',{id:this.user,sports:sport}).subscribe(response => {
+        this.profile=response.json(); 
+      }
+    )
+    
+  
+    } 
+  }
+ openDialog(){
+  const dialog = this.dialog.open(UploadEquipmentComponent,{
+    width:'600px'
+  })
+ }
+  
 
 }
+

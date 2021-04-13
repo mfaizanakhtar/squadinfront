@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
-import {StatsService} from './services/stats.service';
-import {StatService} from './services/stat.service';
-import {WatchplayerService} from './services/watchplayer.service';
-import {EquipService} from './equip.service';
+import { StatsService } from './services/stats.service';
+import { StatService } from './services/stat.service';
+import { WatchplayerService } from './services/watchplayer.service';
+import { EquipService } from './equip.service';
 
 
 
@@ -16,7 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 
 //import { NgModule } from '@angular/core';
-import {  NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ToastrModule } from 'ngx-toastr';
@@ -39,28 +39,29 @@ import { WatchplayerComponent } from './watchplayer/watchplayer.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { FeedComponent } from './feed/feed.component';
 import { EquipmentComponent } from './equipment/equipment.component';
-import {MatFormFieldModule, MatHint, MatLabel} from '@angular/material/form-field';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule, MatHint, MatLabel } from '@angular/material/form-field';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ActivityComponent } from './activity/activity.component';
 import { CreateactivityComponent } from './createactivity/createactivity.component';
 import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MyActivitiesComponent } from './my-activities/my-activities.component';
 import { ApplyActivityComponent } from './apply-activity/apply-activity.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { ApplicantsComponent } from './applicants/applicants.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatDatepickerModule,} from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule, } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatBadgeModule } from '@angular/material/badge';
 import { ReplyApplicationsComponent } from './reply-applications/reply-applications.component';
+import { UploadEquipmentComponent } from './upload-equipment/upload-equipment.component';
 
 @NgModule({
   declarations: [
@@ -86,9 +87,10 @@ import { ReplyApplicationsComponent } from './reply-applications/reply-applicati
     ApplyActivityComponent,
     ApplicantsComponent,
     ReplyApplicationsComponent,
-    
-    
-    
+    UploadEquipmentComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,7 @@ import { ReplyApplicationsComponent } from './reply-applications/reply-applicati
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,MatButtonModule,
+    MatFormFieldModule, MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
@@ -111,40 +113,41 @@ import { ReplyApplicationsComponent } from './reply-applications/reply-applicati
     MatTableModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule, 
+    MatNativeDateModule,
     MatTabsModule,
     MatBadgeModule,
-    
-    
-    
-    
+
+
+
+
     ToastrModule.forRoot(),
     RouterModule.forRoot([
-      
-      { path: 'signup', component: SignupComponent },
-      {path:'signup/:id',component:SignupComponent},
-      { path: 'login', component:LoginComponent},
-      { path: 'navbar', component:NavbarComponent},
-      { path: 'profile', component:ProfileComponent},
-      { path: 'home', component:HomeComponent},
-      { path: 'main', component:MainComponent},
-      {path: 'userdata', component:UserdataComponent},
-      {path: 'nav', component:NavComponent},
-      {path: 'stats', component:StatsComponent},
-      {path: 'showstats/:id', component:ShowstatsComponent},
-      {path:'chat',component:ChatComponent},
-      {path:'watchplayer',component:WatchplayerComponent},
-      {path:'userprofile',component:UserprofileComponent},
-      {path: 'feed',component:FeedComponent},
-      {path: 'equipments', component: EquipmentComponent},
-      {path:'activity', component: ActivityComponent},
-      {path: 'createactivity', component: CreateactivityComponent},
-      {path: 'myactivity', component:MyActivitiesComponent},
 
-     
- 
-  ]),
-],
+      { path: 'signup', component: SignupComponent },
+      { path: 'signup/:id', component: SignupComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'navbar', component: NavbarComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: '', component: HomeComponent },
+      { path: 'main', component: MainComponent },
+      { path: 'userdata', component: UserdataComponent },
+      { path: 'nav', component: NavComponent },
+      { path: 'stats', component: StatsComponent },
+      { path: 'showstats/:id', component: ShowstatsComponent },
+      { path: 'chat', component: ChatComponent },
+      { path: 'watchplayer', component: WatchplayerComponent },
+      { path: 'userprofile', component: UserprofileComponent },
+      { path: 'feed', component: FeedComponent },
+      { path: 'equipments', component: EquipmentComponent },
+      { path: 'activity', component: ActivityComponent },
+      { path: 'createactivity', component: CreateactivityComponent },
+      { path: 'myactivity', component: MyActivitiesComponent },
+      { path: 'equipment', component: EquipmentComponent },
+
+
+
+    ]),
+  ],
   providers: [
     AuthService,
     AuthGuard,
@@ -152,7 +155,7 @@ import { ReplyApplicationsComponent } from './reply-applications/reply-applicati
     StatService,
     WatchplayerService,
     EquipService
-    
+
   ],
   bootstrap: [AppComponent]
 })

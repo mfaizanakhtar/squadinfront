@@ -7,8 +7,7 @@ import { Equipment } from './equipment/equipment.model';
   providedIn: 'root'
 })
 export class EquipService extends DataService {
-  selectedEquipment: Equipment;
-  employees: Equipment[];
+  
   constructor(http:Http) {
     super("http://localhost:3000/api/equipments",http)
    }
