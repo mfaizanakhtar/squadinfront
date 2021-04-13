@@ -1,13 +1,13 @@
 <div class="container">
 <ngb-accordion [closeOthers]="true" activeIds="static-1">
-  <ngb-panel id="static-1" title="Player Name">
+  <ngb-panel *ngFor="let a of applicants" id="static-1" title="Player responses">
     <ng-template ngbPanelContent>
 
-      <h1>Response</h1>
-      <p>Experience: </p>
-      <p>Description: </p>
+      <h1>Name: {{a.userid.name}} </h1>
+      <p>Experience: {{a.Experience}}</p>
+      <p>Description: {{a.Description}}</p>
 
-      <button (click)="openDialog()" mat-stroked-button color="primary">Accept</button>
+      <button (click)="openDialog(a._id)" mat-stroked-button color="primary">Accept</button>
       <button mat-stroked-button color="primary">Reject</button>
      </ng-template>
   </ngb-panel>
