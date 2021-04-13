@@ -33,7 +33,7 @@ export class MyActivitiesComponent implements OnInit {
   }
 
   getAccepted(){
-    this.actRes.getcap('acceptby/'+this.auth.getCurrentUser()._id).subscribe(res=>{
+    this.actRes.getcap('accepteduser/'+this.auth.getCurrentUser()._id).subscribe(res=>{
       this.acceptedresponse=res
       console.log(this.acceptedresponse)
     })
