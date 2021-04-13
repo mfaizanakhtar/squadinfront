@@ -14,6 +14,7 @@ export class NavComponent implements OnInit {
   userName
   type;
   userid;
+  notificationcount=2
   
  
   constructor(

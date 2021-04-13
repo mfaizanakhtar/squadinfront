@@ -8,7 +8,7 @@
       <p>Description: {{a.Description}}</p>
       <p>Location of player: {{a.Address}}</p>
 
-      <button (click)="openDialog(a._id)" mat-stroked-button color="primary">Accept</button>
+      <button (click)="openDialog(a._id,a.userid)" mat-stroked-button color="primary">Accept</button>
       <button mat-stroked-button color="primary">Reject</button>
      </ng-template>
   </ngb-panel>

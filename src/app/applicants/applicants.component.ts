@@ -33,10 +33,10 @@ export class ApplicantsComponent implements OnInit {
       console.log(this.applicants)
     })
   }
-  openDialog(responseid){
+  openDialog(responseid,userid){
     // console.log(responseid)
     this.dialog.open(ReplyApplicationsComponent,{
-      data:{id:responseid}
+      data:{id:responseid,userid:userid}
     })
   }
 }
