@@ -21,7 +21,7 @@ export class UploadEquipmentComponent implements OnInit {
 
   submit(){
     this.equipment.create({
-      userid:this.auth.getCurrentUser().id,
+      userid:this.auth.getCurrentUser()._id,
       equipmentname:this.equipmentname,
       EquipmentCategory:this.EquipmentCategory,
       quantity:this.quantity,

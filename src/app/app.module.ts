@@ -64,6 +64,8 @@ import { ReplyApplicationsComponent } from './reply-applications/reply-applicati
 import { UploadEquipmentComponent } from './upload-equipment/upload-equipment.component';
 import { BuyEquipmentComponent } from './buy-equipment/buy-equipment.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { MsgEquipmentComponent } from './msg-equipment/msg-equipment.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     UploadEquipmentComponent,
     BuyEquipmentComponent,
     UpdateUserComponent,
+    MsgEquipmentComponent,
+    NotificationComponent,
 
 
 

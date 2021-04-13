@@ -19,6 +19,7 @@
       text-align: center;
   }
   .main{
+    height: 100vh;
     display:grid;
     grid-template-columns: 500px auto 500px;
     padding: 10px;

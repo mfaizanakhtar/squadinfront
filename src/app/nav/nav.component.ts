@@ -2,6 +2,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NotificationComponent } from '../notification/notification.component';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -17,7 +19,8 @@ export class NavComponent implements OnInit {
   constructor(
     
     private router : Router,
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog:MatDialog
   ) { 
     this.userName = authService.getCurrentUser().name;
     this.type = authService.getCurrentUser().userType;
@@ -65,6 +68,11 @@ export class NavComponent implements OnInit {
     }
 
     
+  }
+  notification(){
+    const dialog = this.dialog.open(NotificationComponent,{
+      width:'600px'
+    })
   }
   
 
