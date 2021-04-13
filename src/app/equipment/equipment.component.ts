@@ -128,9 +128,9 @@ export class EquipmentComponent implements OnInit {
     width:'600px'
   })
  }
- open(){
+ open(eq){
    const dia = this.dialog.open(BuyEquipmentComponent,{
-     width:'600px'
+     width:'600px',data:eq
    })
  }
   

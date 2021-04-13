@@ -1,10 +1,10 @@
 <div>
-    <div class="card">
+    <div *ngFor="let a of equipresponsearray" class="card">
         <h2>
-            Buyer Name: 
+            Buyer Name: {{a.userid.name}}
         </h2>
         <p>
-            Offer:
+            Offer: {{a.message}}
         </p>
     </div>
 </div>

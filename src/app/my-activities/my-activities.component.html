@@ -8,11 +8,11 @@
     </div>
     <div>
     
-      <mat-card class="equipment">
+      <mat-card *ngFor="let e of equip"  class="equipment">
       
       <mat-card-header>
           
-          <mat-card-title> name</mat-card-title>
+          <mat-card-title> {{e.equipmentname}}</mat-card-title>
           <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         
@@ -24,14 +24,14 @@
            
           <p>
               
-            Description:
+            Description:{{e.Summary}}
             
           </p>
         </mat-card-content>
         <mat-card-actions style="display: flex;">
           <button mat-button >Sold</button>
           <button mat-button>Remove</button>
-          <button mat-button (click) = "dialogmsg()">Messages</button>
+          <button mat-button (click) = "dialogmsg(e)">Messages</button>
 
         </mat-card-actions>
       </mat-card>

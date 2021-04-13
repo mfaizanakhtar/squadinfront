@@ -72,6 +72,14 @@ export class DataService {
     );
   }
 
+  createwithcap(resource,cap) {
+    this.setHeaders();
+    return this.http.post(this.url+'/'+cap, resource,this.options).pipe(
+      map(response=> response.json()),
+      catchError(this.handleError)
+    );
+  }
+
   update(resource, caption, id) {
     this.setHeaders();
     return this.http.put(this.url+'/'+caption+'/'+id, resource,this.options).pipe(

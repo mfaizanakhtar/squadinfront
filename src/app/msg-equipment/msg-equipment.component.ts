@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EquipmentresponseService } from '../equipmentresponse.service';
 
 @Component({
   selector: 'app-msg-equipment',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MsgEquipmentComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(@Inject(MAT_DIALOG_DATA)public data,private equipresponse:EquipmentresponseService) { }
+  equipresponsearray:any
   ngOnInit(): void {
+    // console.log(this.data)
+    this.getEquipResponse()
+  }
+
+  getEquipResponse(){
+    this.equipresponse.getcap("equipment/"+this.data._id)
+    .subscribe(res=>{
+      this.equipresponsearray=res
+      console.log(this.equipresponsearray)
+    })
   }
 
 }
