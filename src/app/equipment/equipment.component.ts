@@ -12,6 +12,7 @@ import { Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { UploadEquipmentComponent } from '../upload-equipment/upload-equipment.component';
+import { BuyEquipmentComponent } from '../buy-equipment/buy-equipment.component';
 
 export interface DialogData {
   animal: string;
@@ -126,6 +127,11 @@ export class EquipmentComponent implements OnInit {
   const dialog = this.dialog.open(UploadEquipmentComponent,{
     width:'600px'
   })
+ }
+ open(){
+   const dia = this.dialog.open(BuyEquipmentComponent,{
+     width:'600px'
+   })
  }
   
 
