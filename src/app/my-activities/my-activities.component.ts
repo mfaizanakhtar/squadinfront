@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApplicantsComponent } from '../applicants/applicants.component';
 import { CreatefeedService } from '../createfeed.service';
+import { MsgEquipmentComponent } from '../msg-equipment/msg-equipment.component';
 import { RespondactivityService } from '../respondactivity.service';
 import { AuthService } from '../services/auth.service';
 
@@ -22,6 +23,11 @@ export class MyActivitiesComponent implements OnInit {
   open(id){
     this.dialog.open(ApplicantsComponent,{
       data:{activityid:id}
+    })
+  }
+  dialogmsg(){
+    this.dialog.open(MsgEquipmentComponent,{
+      width:'600px'
     })
   }
 

@@ -2,51 +2,51 @@
 <h1 class="heading" style="text-align: center;">Equipments for sale</h1>
 <div class="main">
 
-<div class="side-bar">
+  <div class="side-bar">
     <div class="card">
-    <h1>
+      <h1>
         Category
-    </h1>
-    <button (click)="openDialog()" mat-button>upload Equipment</button>
-    <button (click)="clicked('Cricket')" mat-button>Cricket</button>
-    <button (click)="clicked('tennis')" mat-button>Tenis</button>
-</div>
+      </h1>
+      <button (click)="openDialog()" mat-button>upload Equipment</button>
+      <button (click)="clicked('Cricket')" mat-button>Cricket</button>
+      <button (click)="clicked('tennis')" mat-button>Tenis</button>
+    </div>
 
-</div>
-<div class="container" >
-    
+  </div>
+  <div class="container">
 
-<div *ngFor="let eq of equipment">
-    
-<mat-card>
 
-<mat-card-header>
-    
-    <mat-card-title> {{eq.equipmentname}} : {{eq.EquipmentCategory}}</mat-card-title>
-    <mat-card-subtitle></mat-card-subtitle>
-  </mat-card-header>
-  
-  <img mat-card-image src="https://via.placeholder.com/150/000000/FFFFFF/?text=IPaddress.net
+    <div *ngFor="let eq of equipment">
+
+      <mat-card>
+
+        <mat-card-header>
+
+          <mat-card-title> {{eq.equipmentname}} : {{eq.EquipmentCategory}}</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image src="https://via.placeholder.com/150/000000/FFFFFF/?text=IPaddress.net
 
   C/O https://placeholder.com/" alt="">
 
-  <mat-card-content>
-     
-    <p>
-        
-      Description: {{eq.Summary}}
-      
-    </p>
-  </mat-card-content>
-  <mat-card-actions >
-    <button mat-button (click)="open()">Buy</button>
-    <button mat-button>Add to list</button>
-  </mat-card-actions>
-</mat-card>
-</div>
-</div>
-<div>
+        <mat-card-content>
 
-</div>
+          <p>
+
+            Description: {{eq.Summary}}
+
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="open()">Buy</button>
+          <button mat-button>Add to list</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <div>
+
+  </div>
 
 </div>

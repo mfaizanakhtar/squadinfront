@@ -1,0 +1,19 @@
+.stats{
+    justify-content: space-between;
+}
+.mat-card{
+    height: 50px;
+    margin:50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: large;
+    padding:20px;
+}
+.main{
+    display: grid;
+    grid-template-columns: auto 80% auto;
+    justify-self: center;
+    background-color: #f3f2ef;
+
+}

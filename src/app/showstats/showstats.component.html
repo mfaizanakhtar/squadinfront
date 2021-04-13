@@ -1,4 +1,4 @@
-
+<!-- 
 <html>
 <app-nav></app-nav>
 <head>
@@ -231,4 +231,31 @@ body{
 </div>
 
 </body>
-</html>
+</html> -->
+<app-nav></app-nav>
+<div class="main">
+<div class="side-bar">
+  <div class="card">
+    <h1>
+      Category
+    </h1>
+    <button  mat-button>Upload Stats</button>
+    <button  mat-button>Cricket</button>
+    <button  mat-button>Tenis</button>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="mat-card" *ngFor="let prof of profile">
+    <div class="stats" style="display: flex;">
+    <p>Name: {{prof.name}}</p>
+    <p>Sport: {{prof.SportsCategory}}</p>
+    <p>Match Location: {{prof.matches}}</p>
+    <P>Performance: {{prof.Performance}}</P>
+    <p>Summary: {{prof.Summary}}</p>
+    <a href="{{prof.Summary}}"><p>view</p></a>
+  </div>
+  </div>
+</div>
+</div>
