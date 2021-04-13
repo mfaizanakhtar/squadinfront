@@ -62,6 +62,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ReplyApplicationsComponent } from './reply-applications/reply-applications.component';
 import { UploadEquipmentComponent } from './upload-equipment/upload-equipment.component';
+import { BuyEquipmentComponent } from './buy-equipment/buy-equipment.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import { UploadEquipmentComponent } from './upload-equipment/upload-equipment.co
     ApplicantsComponent,
     ReplyApplicationsComponent,
     UploadEquipmentComponent,
+    BuyEquipmentComponent,
+    UpdateUserComponent,
 
 
 

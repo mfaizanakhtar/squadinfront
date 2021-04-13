@@ -16,6 +16,8 @@ import { ToastrService } from 'ngx-toastr';
 import { staticNever } from 'rxjs-compat/add/observable/never';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateUserComponent } from '../update-user/update-user.component';
 
 @Component({
   selector: 'userprofile',
@@ -28,51 +30,55 @@ export class UserprofileComponent implements OnInit {
   data = []
   user
 
-  
+
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private auth: AuthService,
-    private service:UserService,
-    private http:Http
-    )
+    private service: UserService,
+    private http: Http,
+    public dialog: MatDialog
+  ) {
+    http.get('http://localhost:3000/api/users/' + auth.getCurrentUser()._id).subscribe(response => {
+      this.user = response.json();
+      console.log(this.user);
+      this.data = response.json();
 
-    
-     {
-       http.get('http://localhost:3000/api/users/'+ auth.getCurrentUser()._id).subscribe(response =>{
-         this.user=response.json();
-         console.log(this.user);
-        this.data =response.json();
-       
-        
-       } )
-       
-   }
+
+    })
+
+  }
 
   ngOnInit(): void {
-	 this.service.getAll().subscribe(data=> {
-	          this.data = data;
-    }, 
-    
+    this.service.getAll().subscribe(data => {
+      this.data = data;
+    },
+
     )
   }
-  url="./assets/event.jpg";
-  onselectFile(e){
-if(e.target.files){
-  var reader = new FileReader();
-  reader.readAsDataURL(e.target.files[0]);
-  reader.onload=(event:any)=>{
-    this.url=event.target.result;
-    
-  }
-}
+  url = "./assets/event.jpg";
+  onselectFile(e) {
+    if (e.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+
+      }
+    }
   }
 
   viewDetail(user) {
     this.router.navigate(['/showstats', user._id]);
   }
   editUser(user) {
-      this.router.navigate(['/signup', user._id]);
+    this.router.navigate(['/signup', user._id]);
   }
-  
+  update(user){
+    const dialog = this.dialog.open(UpdateUserComponent,{
+      width:'600px'
+    })
+  }
+
+
 }

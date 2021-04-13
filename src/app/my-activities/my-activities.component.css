@@ -5,7 +5,7 @@
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('https://bootdey.com/img/Content/avatar/avatar7.png');
     background-size: cover;
   }
   .container{
@@ -20,7 +20,7 @@
   }
   .main{
     display:grid;
-    grid-template-columns: auto auto 500px;
+    grid-template-columns: 500px auto 500px;
     padding: 10px;
 	  background-color: #f3f2ef;
     justify-self: center;
@@ -28,3 +28,13 @@
   .update{
     width: 300px;
   }
+  .equipment{
+    margin-top:50px ;
+    margin-right: 20px;
+    width: 280px;
+    height: 300px;
+  }
+  img{
+    width: 279px;
+    height: 150px;
+}
