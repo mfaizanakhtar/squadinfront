@@ -59,13 +59,16 @@
       </mat-card>
 </div>
 <div class="update"> 
-  <h1>updates</h1>
-  <Div class="mat-card" style="margin-top: 50px;">
+  <h1>Recently Accepted Users</h1>
+  <Div *ngFor="let a of acceptedresponse" class="mat-card" style="margin-top: 50px;">
     <h2>
-     name
+     {{a.userid.name}}
     </h2>
     <p>
-      Description
+      Activity Name: {{a.feedid.Activityname}}
+    </p>
+    <p>
+      Accepted Message: {{a.AcceptMessage}}
     </p>
   </Div>
   <h2>
