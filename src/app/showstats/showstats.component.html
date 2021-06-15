@@ -232,16 +232,18 @@ body{
 
 </body>
 </html> -->
-<app-nav></app-nav>
+ <app-nav></app-nav>
 <div class="main">
 <div class="side-bar">
   <div class="card">
     <h1>
       Category
     </h1>
-    <button  mat-button>Upload Stats</button>
-    <button  mat-button>Cricket</button>
-    <button  mat-button>Tenis</button>
+    <button  mat-button routerLink="/stats">Upload Stats</button>
+    <button  mat-button (click)="clicked('Cricket')" >Cricket</button>
+    <button  mat-button (click)="clicked('Table Tenis')">Table Tenis</button>
+    <button  mat-button (click)="clicked('Football')">Football</button>
+    <button  mat-button (click)="clicked('Volley Ball')">Volley Ball</button>
   </div>
 
 </div>
@@ -254,8 +256,32 @@ body{
     <p>Match Location: {{prof.matches}}</p>
     <P>Performance: {{prof.Performance}}</P>
     <p>Summary: {{prof.Summary}}</p>
-    <a href="{{prof.Summary}}"><p>view</p></a>
+    <a href="{{prof.link}}"><p>view</p></a>
+  </div>
+  </div>
+  <div class="card">
+    <h1>COMMENTS</h1>
+  <ul class="list-group" style="width: 500px;margin: 0 auto">
+      <li class="list-group-item">
+          <ul *ngFor="let c of comments">
+              <li class="list-group-item" >
+                  <strong>User: {{c.user}}</strong>
+              </li>
+              <li class="list-group-item">
+                  {{c.comment}}
+              </li>
+          </ul>
+      </li>
+  </ul>
+  <div *ngIf="isNotPlayer()">
+    <div style="text-align: center;">
+  <input [(ngModel)]="com" type="text" class="form-control" style="height: 100px; width: 500px;margin: 0 auto;" name="Comment" ngModel placeholder="Your Comment here" class="form-control">
+  <button (click)="addcomment()" class="btn btn-primary btn-block" style="width: 500px;margin: 0 auto;" >Add Comment</button>
+    </div>
   </div>
   </div>
 </div>
+<div>
+  
 </div>
+</div> 

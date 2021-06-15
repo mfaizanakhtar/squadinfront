@@ -28,6 +28,12 @@
                         
                         
                     </div>
+                    <div class="form-group">
+                        <label for="link" class="for">Link for this match</label>
+                        <input required [(ngModel)]="stat.link"  name="link" #link="ngModel" type="text" id="link" class="form-control">
+                        
+                        
+                    </div>
                      <div class="form-group">
                          <label for="matches" class="for">Matches</label>
                          <input required [(ngModel)]="stat.matches"  name="matches" #matches="ngModel" type="text" id="matches" class="form-control">

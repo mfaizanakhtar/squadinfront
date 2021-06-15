@@ -33,5 +33,5 @@ export class ReplyApplicationsComponent implements OnInit {
 
     this.notif.addNotification(this.uid._id,"Your request is accepted")
   }
-
+  
 }

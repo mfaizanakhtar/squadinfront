@@ -19,6 +19,7 @@ export class ApplyActivityComponent implements OnInit {
   }
 
   respondActivity(){
+    alert('Response Has been delivered')
     this.respond.create({
       userid:this.auth.getCurrentUser()._id,
       feedid:this.data.activityid,

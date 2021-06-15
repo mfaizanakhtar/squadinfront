@@ -20,6 +20,7 @@ export class CreateactivityComponent implements OnInit {
   }
 
   submit(){
+    alert("Created");
     this.feed.create({
       userid:this.auth.getCurrentUser()._id,
       Activityname:this.activityname,
@@ -27,8 +28,10 @@ export class CreateactivityComponent implements OnInit {
       NoOfPlayers:this.NoOfPlayers,
       ActivityDescription:this.description,
       TimeStamp:new Date()
+      
     }).subscribe(response=>{
       console.log(response);
+      
     })
     // console.log(this.description,this.activityname,this.sport,this.NoOfPlayers)
   }

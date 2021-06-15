@@ -66,6 +66,20 @@ import { BuyEquipmentComponent } from './buy-equipment/buy-equipment.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { MsgEquipmentComponent } from './msg-equipment/msg-equipment.component';
 import { NotificationComponent } from './notification/notification.component';
+import { CreateeventComponent } from './createevent/createevent.component';
+import { EventComponent } from './event/event.component';
+import { EventanalyticsComponent } from './eventanalytics/eventanalytics.component';
+import { EventCalenderComponent } from './event-calender/event-calender.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import { AnalyticsService } from './analytics.service';
+
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  
+]);
 
 @NgModule({
   declarations: [
@@ -96,6 +110,10 @@ import { NotificationComponent } from './notification/notification.component';
     UpdateUserComponent,
     MsgEquipmentComponent,
     NotificationComponent,
+    CreateeventComponent,
+    EventComponent,
+    EventanalyticsComponent,
+    EventCalenderComponent,
 
 
 
@@ -124,6 +142,7 @@ import { NotificationComponent } from './notification/notification.component';
     MatNativeDateModule,
     MatTabsModule,
     MatBadgeModule,
+    FullCalendarModule,
 
 
 
@@ -151,6 +170,10 @@ import { NotificationComponent } from './notification/notification.component';
       { path: 'createactivity', component: CreateactivityComponent },
       { path: 'myactivity', component: MyActivitiesComponent },
       { path: 'equipment', component: EquipmentComponent },
+      { path: 'createevent', component: CreateeventComponent},
+      {path: 'event' , component: EventComponent},
+      {path: 'eventanalytics' , component: EventanalyticsComponent},
+      {path: 'eventcalender' , component: EventCalenderComponent},
 
 
 
@@ -162,7 +185,8 @@ import { NotificationComponent } from './notification/notification.component';
     StatsService,
     StatService,
     WatchplayerService,
-    EquipService
+    EquipService,
+    AnalyticsService,
 
   ],
   bootstrap: [AppComponent]

@@ -79,6 +79,7 @@ export class StatsComponent implements OnInit {
       matches: sf.value.registration.matches,
       Performance: sf.value.registration.Performance,
       Summary: sf.value.registration.Summary,
+      link: sf.value.registration.link,
       
      
      

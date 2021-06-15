@@ -39,8 +39,8 @@ export class EquipmentComponent implements OnInit {
     private service: EquipService,
     private router: Router,
     private http: Http,
-    private auth:AuthService,
-    
+    private auth: AuthService,
+
   ) {
     {
       http.get('http://localhost:3000/api/equipments/equipment').subscribe(response => {
@@ -56,7 +56,7 @@ export class EquipmentComponent implements OnInit {
 
 
 
-    this.route.params.subscribe(params=>{
+    this.route.params.subscribe(params => {
       this.user = params['id'];
       this.DataAdd('all');
       console.log(this.user);
@@ -74,7 +74,7 @@ export class EquipmentComponent implements OnInit {
     console.log('asd')
     console.log(sf.value);
     let equipment = {
-      userid:this.auth.getCurrentUser()._id,
+      userid: this.auth.getCurrentUser()._id,
       equipmentname: sf.value.registeration.eqname,
       EquipmentCategory: sf.value.registeration.equipmentcategory,
       quantity: sf.value.registeration.quantity,
@@ -102,38 +102,37 @@ export class EquipmentComponent implements OnInit {
 
   }
 
-  DataAdd(sport){
-  
-    if(sport == 'all')
-    {
+  DataAdd(sport) {
+
+    if (sport == 'all') {
       console.log(this.user)
-      this.http.get('http://localhost:3000/api/equipments/equipment'+this.user).subscribe(response => {
-        this.profile=response.json();
+      this.http.get('http://localhost:3000/api/equipments/equipment' + this.user).subscribe(response => {
+        this.profile = response.json();
         console.log(this.profile);
       }
-    )
+      )
     }
-  
-    else{
-      this.http.post('http://localhost:3000/api/equipments/sport',{id:this.user,sports:sport}).subscribe(response => {
-        this.profile=response.json(); 
+
+    else {
+      this.http.post('http://localhost:3000/api/equipments/sport', { id: this.user, sports: sport }).subscribe(response => {
+        this.profile = response.json();
       }
-    )
-    
-  
-    } 
+      )
+
+
+    }
   }
- openDialog(){
-  const dialog = this.dialog.open(UploadEquipmentComponent,{
-    width:'600px'
-  })
- }
- open(eq){
-   const dia = this.dialog.open(BuyEquipmentComponent,{
-     width:'600px',data:eq
-   })
- }
-  
+  openDialog() {
+    const dialog = this.dialog.open(UploadEquipmentComponent, {
+      width: '600px'
+    })
+  }
+  open(eq) {
+    const dia = this.dialog.open(BuyEquipmentComponent, {
+      width: '600px', data: eq
+    })
+  }
+
 
 }
 

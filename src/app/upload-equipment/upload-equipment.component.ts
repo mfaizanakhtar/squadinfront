@@ -20,6 +20,7 @@ export class UploadEquipmentComponent implements OnInit {
   }
 
   submit(){
+    alert('equipment Added for sale')
     this.equipment.create({
       userid:this.auth.getCurrentUser()._id,
       equipmentname:this.equipmentname,

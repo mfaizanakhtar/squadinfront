@@ -30,7 +30,8 @@ export class MyActivitiesComponent implements OnInit {
   }
   dialogmsg(e){
     this.dialog.open(MsgEquipmentComponent,{
-      width:'600px',data:e
+      width:'600px',
+      data:e
     })
   }
 
