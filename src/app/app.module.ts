@@ -73,12 +73,14 @@ import { EventCalenderComponent } from './event-calender/event-calender.componen
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import { AnalyticsService } from './analytics.service';
+import { NgxChartsModule } from '@swimlane/ngx-charts'
+
+
 
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin,
-  
+  dayGridPlugin
 ]);
 
 @NgModule({
@@ -143,6 +145,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatTabsModule,
     MatBadgeModule,
     FullCalendarModule,
+    NgxChartsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    
 
 
 

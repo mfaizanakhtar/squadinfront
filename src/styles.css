@@ -4,6 +4,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 .form-control.ng-touched.ng-invalid {
     border: 2px solid red;

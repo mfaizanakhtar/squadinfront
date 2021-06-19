@@ -1,6 +1,15 @@
 <app-nav></app-nav>
 
-<div>
-<h1>{{user}} number of players</h1>
-  </div>
+<!-- <div>
+  <canvas id="myChart" width="400" height="400"></canvas>
+</div> -->
+
+<ngx-charts-pie-chart 
+    [results]="data"
+    [legend]="true"
+    [legendTitle]="'Users Report'" 
+    [view]="[1000,300]"
+    [labels]="true" >
+</ngx-charts-pie-chart>
+
   

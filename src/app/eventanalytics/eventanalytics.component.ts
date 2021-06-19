@@ -1,27 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import {  AnalyticsService } from '../analytics.service';
-import { Chart } from 'chart.js'
-import { ɵallowPreviousPlayerStylesMerge } from '@angular/animations/browser';
+import { calculateViewDimensions, DataItem } from '@swimlane/ngx-charts';
+import { ColorHelper } from '@swimlane/ngx-charts';
+import { BaseChartComponent } from '@swimlane/ngx-charts';
+import { LegendOptions,LegendPosition,ScaleType,ViewDimensions } from '@swimlane/ngx-charts';
+
 
 @Component({
   selector: 'app-eventanalytics',
   templateUrl: './eventanalytics.component.html',
-  styleUrls: ['./eventanalytics.component.css']
+  styleUrls: ['./eventanalytics.component.css'],
+  
 })
 export class EventanalyticsComponent implements OnInit {
-  user;
-  
+ 
+  data:any[]
 
   constructor(private analytics: AnalyticsService) { }
 
   ngOnInit(): void {
     this.analytics.getAll().subscribe(res =>{
-      console.log(res)
-      this.user = res;
+      var formattedData=[]
+      res.forEach(element => {
+        formattedData.push({"name":element._id,"value":element.count})
+      });
+      this.data=formattedData
      
     })
    
-  }
+}
 
   
 
