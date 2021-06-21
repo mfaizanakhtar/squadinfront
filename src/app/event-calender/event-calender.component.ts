@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import {MatDialog} from '@angular/material/dialog';
+
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -19,6 +21,8 @@ import {
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CreateeventComponent } from '../createevent/createevent.component';
+import { EventService } from '../event.service';
 
 const colors: any = {
   red: {
@@ -43,23 +47,10 @@ const colors: any = {
 })
 export class EventCalenderComponent implements OnInit {
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
-  constructor(private modal: NgbModal) {}
+  constructor(private eventApi:EventService,private dialog:MatDialog,private modal: NgbModal) {}
   ngOnInit(): void {
-    
+    this.fetchEvents();
   }
-  // calendarOptions: CalendarOptions = {
-  //   initialView: 'dayGridMonth',
-  //   weekends: false,
-  //   events: [
-  //     { title: 'event 1', date: '2021-06-16' },
-  //     { title: 'event 2', date: '2021-06-16' }
-  //   ],
-    
-  // };
-
-  // handleDateClick(arg) {
-  //   alert('date click! ' + arg.dateStr)
-  // }
   view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;
@@ -91,52 +82,53 @@ export class EventCalenderComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-  ];
+  events: CalendarEvent[]
+  //   {
+  //     start: subDays(startOfDay(new Date()), 1),
+  //     end: addDays(new Date(), 1),
+  //     title: 'A 3 day event',
+  //     color: colors.red,
+  //     actions: this.actions,
+  //     allDay: true,
+  //     resizable: {
+  //       beforeStart: true,
+  //       afterEnd: true,
+  //     },
+  //     draggable: true,
+  //   },
+  //   {
+  //     start: startOfDay(new Date()),
+  //     title: 'An event with no end date',
+  //     color: colors.yellow,
+  //     actions: this.actions,
+  //   },
+  //   {
+  //     start: subDays(endOfMonth(new Date()), 3),
+  //     end: addDays(endOfMonth(new Date()), 3),
+  //     title: 'A long event that spans 2 months',
+  //     color: colors.blue,
+  //     allDay: true,
+  //   },
+  //   {
+  //     start: addHours(startOfDay(new Date()), 2),
+  //     end: addHours(new Date(), 2),
+  //     title: 'A draggable and resizable event',
+  //     color: colors.yellow,
+  //     actions: this.actions,
+  //     resizable: {
+  //       beforeStart: true,
+  //       afterEnd: true,
+  //     },
+  //     draggable: true,
+  //   },
+  // ];
 
   activeDayIsOpen: boolean = true;
 
   
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    // console.log(date,events)
     if (isSameMonth(date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
@@ -174,20 +166,32 @@ export class EventCalenderComponent implements OnInit {
   }
 
   addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
-      },
-    ];
+    const dialogRef = this.dialog.open(CreateeventComponent)
+    dialogRef.afterClosed().subscribe(()=>{
+      this.fetchEvents()
+    })
+  
+  }
+
+  fetchEvents(){
+    this.eventApi.getAll().subscribe(res=>{
+      var fetchedvents = []
+      res.forEach(e => {
+        fetchedvents.push({
+            start: startOfDay(new Date(e.eventDate)),
+            title: e.eventname,
+            description:e.Summary,
+            color: colors.yellow,
+            actions: this.actions,
+            resizable: {
+              beforeStart: true,
+              afterEnd: true,
+            },
+            draggable: true,
+          })
+        });
+        this.events=fetchedvents
+    })
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
@@ -204,9 +208,5 @@ export class EventCalenderComponent implements OnInit {
 }
 
 
-  // toggleWeekends() {
-  //   this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
-  // }
-  
 
 

@@ -1,27 +1,27 @@
 
-
+<form #f="ngForm" (ngSubmit)="createEvent(f.value)">
 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 <div class="container">
     <h1 style="padding-bottom: 100px;">Create Event</h1>
     
     <mat-form-field class="example-full-width">
         <mat-label>Event Name</mat-label>
-        <input matInput type="text" />
+        <input ngModel name="eventname" matInput type="text" />
       </mat-form-field>
 
     
       <mat-form-field class="example-full-width">
         <mat-label>Event Category</mat-label>
-        <input matInput  >
+        <input ngModel name="EventCategory" matInput  >
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>No of players</mat-label>
-        <input matInput  >
+        <input ngModel name="noOfPlayers" matInput  >
       </mat-form-field>
 
       <mat-form-field >
         <mat-label>Event Date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input ngModel name="eventDate" matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -30,7 +30,7 @@
       
     <mat-form-field >
         <mat-label>Description</mat-label>
-        <textarea matInput></textarea>
+        <textarea ngModel name="Summary" matInput></textarea>
       </mat-form-field>
       
 
@@ -39,7 +39,8 @@
 
 
 
-    <button  class="btn-create" color="primary" mat-raised-button>Create</button>
+    <button type="submit"  class="btn-create" color="primary" mat-raised-button>Create</button>
 
 
 </div>
+</form>
