@@ -75,7 +75,7 @@
       margin-top: 0px;
       color: #1a202c;
       text-align: left;
-      background-color: #e2e8f0;
+      background-color: #ffffff;
       height: 100%;
       background-size: 100%;
 
@@ -158,8 +158,8 @@
                   <p class="text-secondary mb-1">{{user.userType}}</p>
 
                   <!-- <button type="button" class="btn btn-outline-primary edit" (click)="editUser(user)">Update</button> -->
-                  <button type="button" class="btn btn-outline-primary edit" (click)="update(user)">Update</button>
-                  <a routerLink="/chat"><button class="btn btn-outline-primary">Messages</button></a>
+                  <button type="button" class="btn btn-outline-primary edit" (click)="updatebio(user)">Update</button>
+                  <button class="btn btn-outline-primary" (click)="updatestat(user)">Upload Stats</button>
                 </div>
               </div>
             </div>
@@ -186,6 +186,7 @@
                   {{user.email}}
                 </div>
               </div>
+              
               <hr>
 
             </div>

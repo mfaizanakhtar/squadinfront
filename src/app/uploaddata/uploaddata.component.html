@@ -1,0 +1,56 @@
+
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<div class="container">
+    <h1 style="padding-bottom: 100px;">upload Product For Sale</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Name of academy</mat-label>
+        <input matInput type="text" [(ngModel)] = 'academyname' />
+      </mat-form-field>
+
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <input matInput type="text" [(ngModel)] = 'address' >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Sport</mat-label>
+        <input matInput type="text" [(ngModel)] = 'sport' >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Height</mat-label>
+        <input matInput type="text" [(ngModel)] = 'height' >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Weight</mat-label>
+        <input matInput type="text" [(ngModel)] = 'weight' >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Age</mat-label>
+        <input matInput type="text" [(ngModel)] = 'age' >
+      </mat-form-field>
+
+      <!-- <mat-form-field >
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+
+    
+      
+    <mat-form-field >
+        <mat-label>Sports Background</mat-label>
+        <textarea matInput type="text" [(ngModel)] = 'sportsback' ></textarea>
+      </mat-form-field>
+      
+
+
+    
+
+
+
+    <button (click)="submit()"  class="btn-create" color="primary" mat-raised-button>Create</button>
+
+
+</div>

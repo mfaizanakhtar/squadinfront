@@ -4,6 +4,7 @@ import { calculateViewDimensions, DataItem } from '@swimlane/ngx-charts';
 import { ColorHelper } from '@swimlane/ngx-charts';
 import { BaseChartComponent } from '@swimlane/ngx-charts';
 import { LegendOptions,LegendPosition,ScaleType,ViewDimensions } from '@swimlane/ngx-charts';
+import { BiodataService } from '../biodata.service';
 
 
 @Component({
@@ -14,20 +15,36 @@ import { LegendOptions,LegendPosition,ScaleType,ViewDimensions } from '@swimlane
 })
 export class EventanalyticsComponent implements OnInit {
  
-  data:any[]
+  userdata:any[]
+  sportsdata:any[]
 
-  constructor(private analytics: AnalyticsService) { }
+  constructor(private analytics: AnalyticsService,private biodata:BiodataService) { }
 
   ngOnInit(): void {
-    this.analytics.getAll().subscribe(res =>{
-      var formattedData=[]
-      res.forEach(element => {
-        formattedData.push({"name":element._id,"value":element.count})
-      });
-      this.data=formattedData
-     
-    })
+    this.userAnalytics()
+    this.sportsAnalytics()
    
+}
+
+userAnalytics(){
+  this.analytics.getAll().subscribe(res =>{
+    var formattedData=[]
+    res.forEach(element => {
+      formattedData.push({"name":element._id,"value":element.count})
+    });
+    this.userdata=formattedData
+   
+  })
+}
+
+sportsAnalytics(){
+  this.biodata.getcap('sports').subscribe(res=>{
+    var formattedData=[]
+    res.forEach(element => {
+      formattedData.push({"name":element._id,"value":element.count})
+    });
+    this.sportsdata=formattedData;
+  })
 }
 
   

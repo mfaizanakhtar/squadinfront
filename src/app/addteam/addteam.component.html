@@ -1,0 +1,11 @@
+<h4>Team Select</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Select your team</mat-label>
+  <mat-select [(value)]="teamselected">
+    <mat-option *ngFor="let team of teams" [value]="team">
+     {{team.teamname}}
+    </mat-option>
+  </mat-select>
+  
+</mat-form-field>
+<button (click)="AddtoTeam()">add</button>

@@ -4,6 +4,7 @@
     width: 10px;
     min-width: 540px;
     height: auto;
+    margin-bottom: 10px;
     /* max-width: 400px; */
   }
   
@@ -11,14 +12,15 @@
     background-image: url('https://bootdey.com/img/Content/avatar/avatar7.png');
     background-size: cover;
   }
-  .flex-container {
+  .container {
    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:flex-start;
-    padding-top: 50px;
-    background-color: #f3f2ef;
+    padding-top: 30px;
+    
+    background-color: #ffffff;
   }
   button{
     

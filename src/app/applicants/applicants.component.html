@@ -1,6 +1,6 @@
 <div class="container">
-<ngb-accordion [closeOthers]="true" activeIds="static-1">
-  <ngb-panel *ngFor="let a of applicants" id="static-1" title="Player responses">
+<ngb-accordion [closeOthers]="true" >
+  <ngb-panel *ngFor="let a of applicants"  title="Player responses : {{a.userid.name}}">
     <ng-template ngbPanelContent>
 
       <h1>Name: {{a.userid.name}} </h1>

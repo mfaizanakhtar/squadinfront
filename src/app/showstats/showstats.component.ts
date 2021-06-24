@@ -6,6 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Observable,of,Subscription } from 'rxjs';
 import { CommentService } from '../comment.service';
+import { BiodataService } from '../biodata.service';
+import { getMatScrollStrategyAlreadyAttachedError } from '@angular/cdk/overlay/scroll/scroll-strategy';
+import { MatDialog } from '@angular/material/dialog';
+import { AddteamComponent } from '../addteam/addteam.component';
 
 
 @Component({
@@ -20,6 +24,8 @@ export class ShowstatsComponent implements OnInit {
   data = [];
   comments;
   com;
+  biodata;
+  dat = [];
 
  
   constructor(private http: Http,
@@ -27,7 +33,9 @@ export class ShowstatsComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private route:ActivatedRoute,
-    private comment:CommentService ){
+    private comment:CommentService,
+    private bdata:BiodataService,
+    private dialog:MatDialog ){
 
 
     }
@@ -36,10 +44,13 @@ export class ShowstatsComponent implements OnInit {
     // this.service.getAll().subscribe(data=> {
     //   this.data = data;
     
+    
     this.route.params.subscribe(params=>{
       this.user = params['id'];
       this.DataAdd('all');
       // console.log(this.user);
+
+      this.getmydata();
 
     })
 
@@ -90,11 +101,29 @@ DataAdd(sport){
       this.profile=response.json(); 
     }
   )
-  
-
   } 
 }
+// getmydata(){
+//   this.bdata.getcap('bio/'+this.auth.getCurrentUser()._id).subscribe(res=>{
+//     this.biodata = res
+//     console.log(this.biodata);
+    
+//   })
+// }
 
+getmydata(){
+  this.bdata.getcap('bio/'+this.user).subscribe(res=>{
+    this.biodata = res
+    console.log(this.biodata);
+    
+  })
+}
+getadd(){
+  
+  var dialogRef = this.dialog.open(AddteamComponent,{
+    width:'600px',data:{userid:this.user}
+  })
+}
   
 }
 

@@ -28,7 +28,7 @@ export class ReplyApplicationsComponent implements OnInit {
   replySuccess(){
     console.log(this.reply)
     this.response.update({acceptmessage:this.reply,AcceptById:this.auth.getCurrentUser()._id},"accept",this.data.id).subscribe(res=>{
-      console.log(res)
+      console.log(res) 
     })
 
     this.notif.addNotification(this.uid._id,"Your request is accepted")

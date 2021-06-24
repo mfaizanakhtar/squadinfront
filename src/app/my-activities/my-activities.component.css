@@ -1,6 +1,6 @@
 .example-card {
    min-width: 400px;
-    margin-top: 50px;
+    margin-top: 65px;
 
   }
   
@@ -9,7 +9,7 @@
     background-size: cover;
   }
   .container{
-    background-color: #f3f2ef;
+    background-color: #ffffff;
     height: 100%;
     /* width: 700px; */
   }
@@ -17,17 +17,20 @@
       margin-top: 10px;
       padding-top: 20px;
       text-align: center;
+      
   }
   .main{
     height: 100vh;
     display:grid;
     grid-template-columns: 500px auto 500px;
     padding: 10px;
-	  background-color: #f3f2ef;
+	  background-color: #ffffff;
     justify-self: center;
   }
   .update{
     width: 300px;
+    margin-top: -15px;
+    position: relative;
   }
   .equipment{
     margin-top:50px ;
@@ -38,4 +41,13 @@
   img{
     width: 279px;
     height: 150px;
+}
+.equips{
+  display: flex;
+  
+  justify-content: center;
+  padding-left: 240px;
+  padding-right: 0px;
+  margin-right: 0px;
+  
 }

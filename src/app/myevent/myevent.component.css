@@ -1,0 +1,41 @@
+.example-card {
+    min-width: 400px;
+     margin-top: 50px;
+ 
+   }
+   
+   .example-header-image {
+     background-image: url('https://bootdey.com/img/Content/avatar/avatar7.png');
+     background-size: cover;
+   }
+   .container{
+     background-color: #f3f2ef;
+     height: 100%;
+     /* width: 700px; */
+   }
+   h1{
+       margin-top: 10px;
+       padding-top: 20px;
+       text-align: center;
+   }
+   .main{
+     height: 100vh;
+     display:grid;
+     grid-template-columns: 500px auto 500px;
+     padding: 10px;
+       background-color: #f3f2ef;
+     justify-self: center;
+   }
+   .update{
+     width: 300px;
+   }
+   .equipment{
+     margin-top:50px ;
+     margin-right: 20px;
+     width: 280px;
+     height: 300px;
+   }
+   img{
+     width: 279px;
+     height: 150px;
+ }

@@ -1,12 +1,14 @@
 <app-nav></app-nav>
+
+
 <div class="main" >
   <div>
     <div >
-      <h1>
+      <h1 style="margin-left: 200px;">
         My Equipments
       </h1>
     </div>
-    <div>
+    <div class="equips">
     
       <mat-card *ngFor="let e of equip"  class="equipment">
       
@@ -56,7 +58,7 @@
           
         </mat-card-content>
         <mat-card-actions>
-            <button (click)="open(a._id)" mat-stroked-button>View Applicants</button>
+            <button (click)="open(a._id)" mat-stroked-button matBadge="{{not}}">View Applicants</button>
         </mat-card-actions>
       </mat-card>
 </div>

@@ -1,18 +1,18 @@
 <app-nav></app-nav>
 <div class="register-photo">
     <div class="form-container">
-        <div class="image-holder" style="background: url(&quot;assets/img/stat.jpg&quot;);background-size: 100% 100%;"></div>
+        <!-- <div class="image-holder" style="background: url(&quot;assets/img/stat.jpg&quot;);background-size: 100% 100%;"></div> -->
         <form method="post">
-            <h2 class="text-center"><strong>Create</strong> Stats </h2>
+            <h2 class="text-center"><strong>Upload</strong> Stats </h2>
             <form #signupForm="ngForm">
                 <div ngModelGroup="registration">
 
                     <div class="form-group">
-                        <label for="name" class="for">Name</label>
+                        <label for="name" class="for">Match Type</label>
                         <!-- <input ngModel name="fName" #fName="ngModel" type="text" id="fName" class="form-control" (change)="onChange(fName)"> -->
                         <input required minlength="3" maxlength="15"  [(ngModel)]="stat.name" name="fName" #fName="ngModel" type="text" id="fName" class="form-control">
                         <div class="alert alert-danger" *ngIf="fName.touched && !fName.valid">
-                            <div *ngIf="fName.errors.required">Matches no is a required field.</div>
+                            <div *ngIf="fName.errors.required">Matche type is a required field. eg. friendly etc.</div>
                             
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         
                     </div>
                      <div class="form-group">
-                         <label for="matches" class="for">Matches</label>
+                         <label for="matches" class="for">Match Location</label>
                          <input required [(ngModel)]="stat.matches"  name="matches" #matches="ngModel" type="text" id="matches" class="form-control">
                          
                          

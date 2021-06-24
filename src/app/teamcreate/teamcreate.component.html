@@ -1,0 +1,22 @@
+<app-nav>
+
+</app-nav>
+
+
+<!-- <form #f="ngForm" (ngSubmit)="createEvent(sf.value)"> -->
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <div class="container">
+        <h1 style="padding-bottom: 100px;">Create Team</h1>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Team Name</mat-label>
+            <input [(ngModel)]="teamname" matInput type="text" />
+          </mat-form-field>
+    
+       
+    
+    
+        <button (click)="createteam()"   class="btn-create" color="primary" mat-raised-button>Create</button>
+    
+    
+    </div>

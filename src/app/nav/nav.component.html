@@ -95,7 +95,7 @@
 
       <div class="nav-update" style="display: flex;">
         <div class="logo">
-      <a href="feed"><span>Squad IN</span></a>
+      <a href="feed"  ><span>Squad IN</span></a>
        </div>
       <!-- <div class="spacer"> </div> -->
       <div style="display: flex;">
@@ -105,7 +105,7 @@
       <a class="nav-link" *ngIf="isDepartment()" routerLinkActive="active current" routerLink="/watchplayer"> RECRUIT <span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" [routerLink]="['/showstats',userid]">STATS<span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isPlayer()" routerLinkActive="active current" routerLink="/equipment">EQUIPMENT<span class="sr-only"></span></a>
-      <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/addjob"> Organize Events <span class="sr-only"></span></a>
+      <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/eventcalender"> Organize Events <span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/watchplayer"> Watch Player <span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/addjob"> Event Analytics <span class="sr-only"></span></a>
       <a class="nav-link" *ngIf="isOrganizer()" routerLinkActive="active current" routerLink="/chat"> Chat Room <span class="sr-only"></span></a>
@@ -117,8 +117,8 @@
 
     <div class="icons" style="display: flex;">
      
-     <a (click)="notification()"> <mat-icon #icon matBadgeSize= 'small' matBadge="" matBadgeColor="warn" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on right">notification_important</mat-icon></a>
-      <a class="dropdown-item" routerLink="/login">Logout</a>
+     <a (click)="notification()"> <mat-icon #icon matBadgeSize= 'small' matBadge="{{no}}" matBadgeColor="warn" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on right">notification_important</mat-icon></a>
+      <a class="dropdown-item" (click)="logout()">Logout</a>
      
       <a class="dropdown-item" routerLink="/userprofile">Profile</a>
     </div>
@@ -128,5 +128,6 @@
       
     </span>
     </mat-toolbar>
+    
 
  

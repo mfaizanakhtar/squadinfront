@@ -5,7 +5,10 @@
 .container{
 
     margin-top: 50px;
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100vw;
+   
 }
 
 .navbar {
@@ -283,8 +286,6 @@
   height: 310px;
 }
 .list{height: 290px; overflow-y: scroll; padding: 5px 64px;}
-
-
 
 
 

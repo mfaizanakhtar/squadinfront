@@ -3,13 +3,27 @@
 <!-- <div>
   <canvas id="myChart" width="400" height="400"></canvas>
 </div> -->
-
+<div style="margin-top: 100px;display: flex;align-items: center;justify-content: center;">
 <ngx-charts-pie-chart 
-    [results]="data"
+    [results]="userdata"
     [legend]="true"
     [legendTitle]="'Users Report'" 
-    [view]="[1000,300]"
+    [view]="[700,300]"
     [labels]="true" >
 </ngx-charts-pie-chart>
+</div>
 
-  
+
+<ngx-charts-bar-vertical 
+    [view]="[1000,400]"
+    [results]="sportsdata"
+    [xAxisLabel]="'Products'"
+    [legendTitle]="'Product Sale Chart'"
+    [yAxisLabel]="'Sale'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+</ngx-charts-bar-vertical>

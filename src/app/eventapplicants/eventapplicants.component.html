@@ -1,0 +1,16 @@
+<div class="container">
+    <ngb-accordion [closeOthers]="true" activeIds="static-1">
+      <ngb-panel *ngFor="let a of eventapplicants" id="static-1" title="Player responses">
+        <ng-template ngbPanelContent>
+    
+          <h1>Name: {{a.userid.name}} </h1>
+          <p>Managername: {{a.managername}}</p>
+          <p>Description: {{a.Description}}</p>
+          <p>Location of player: {{a.Address}}</p>
+    
+          <button (click)="open(a._id,a.userid)" mat-stroked-button color="primary">Accept</button>
+          <button mat-stroked-button color="primary">Reject</button>
+         </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    </div>

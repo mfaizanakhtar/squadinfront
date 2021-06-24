@@ -18,6 +18,8 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateUserComponent } from '../update-user/update-user.component';
+import { UploaddataComponent } from '../uploaddata/uploaddata.component';
+import { StatsComponent } from '../stats/stats.component';
 
 @Component({
   selector: 'userprofile',
@@ -63,7 +65,6 @@ export class UserprofileComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
-
       }
     }
   }
@@ -76,6 +77,17 @@ export class UserprofileComponent implements OnInit {
   }
   update(user){
     const dialog = this.dialog.open(UpdateUserComponent,{
+      width:'600px'
+    })
+  }
+  updatebio(user){
+    const dialog = this.dialog.open(UploaddataComponent,{
+      width:'600px'
+    })
+  }
+
+  updatestat(user){
+    const dialog = this.dialog.open(StatsComponent,{
       width:'600px'
     })
   }

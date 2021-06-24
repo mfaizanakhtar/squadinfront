@@ -1,36 +1,39 @@
 
-<form #f="ngForm" (ngSubmit)="createEvent(f.value)">
+<!-- <form #f="ngForm" (ngSubmit)="createEvent(sf.value)"> -->
 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 <div class="container">
     <h1 style="padding-bottom: 100px;">Create Event</h1>
     
     <mat-form-field class="example-full-width">
         <mat-label>Event Name</mat-label>
-        <input ngModel name="eventname" matInput type="text" />
+        <input [(ngModel)]="eventname" matInput type="text" />
       </mat-form-field>
 
     
       <mat-form-field class="example-full-width">
         <mat-label>Event Category</mat-label>
-        <input ngModel name="EventCategory" matInput  >
+        <input [(ngModel)]="eventCategory" matInput  >
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <!-- <mat-form-field class="example-full-width">
         <mat-label>No of players</mat-label>
-        <input ngModel name="noOfPlayers" matInput  >
-      </mat-form-field>
+        <input [(ngModel)]="noOfPlayers" matInput  >
+      </mat-form-field> -->
 
       <mat-form-field >
         <mat-label>Event Date</mat-label>
-        <input ngModel name="eventDate" matInput [matDatepicker]="picker">
+        <input [(ngModel)]="eventDate" matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-
+      <mat-form-field class="example-full-width">
+        <mat-label>time</mat-label>
+        <input [(ngModel)]="eventtime" matInput  >
+      </mat-form-field>
     
       
     <mat-form-field >
         <mat-label>Description</mat-label>
-        <textarea ngModel name="Summary" matInput></textarea>
+        <textarea [(ngModel)]="summary" matInput></textarea>
       </mat-form-field>
       
 
@@ -39,8 +42,8 @@
 
 
 
-    <button type="submit"  class="btn-create" color="primary" mat-raised-button>Create</button>
+    <button (click)="createEvent()"   class="btn-create" color="primary" mat-raised-button>Create</button>
 
 
 </div>
-</form>
+<!-- </form> -->

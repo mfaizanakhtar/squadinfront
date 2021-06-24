@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationComponent } from '../notification/notification.component';
+import { NotificationService } from '../notification.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -15,13 +16,14 @@ export class NavComponent implements OnInit {
   type;
   userid;
   notificationcount=2
-  
+  no:any
  
   constructor(
     
     private router : Router,
     private authService: AuthService,
-    public dialog:MatDialog
+    public dialog:MatDialog,
+    private notifi: NotificationService
   ) { 
     this.userName = authService.getCurrentUser().name;
     this.type = authService.getCurrentUser().userType;
@@ -29,6 +31,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getnot()
   }
   login(){
     this.router.navigate(['/login']);
@@ -75,7 +78,17 @@ export class NavComponent implements OnInit {
       width:'600px'
     })
   }
+  getnot(){
+this.notifi.getcap('noofnot/'+this.authService.getCurrentUser()._id).subscribe(res=>{
+  this.no = res
+  console.log(this.no)
+})
+  }
   
+  logout(){
+    this.authService.logout()
+    this.router.navigate(['login'])
+  }
 
 }
 

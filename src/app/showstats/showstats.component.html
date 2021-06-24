@@ -1,239 +1,6 @@
-<!-- 
-<html>
-<app-nav></app-nav>
-<head>
-<style>
-#users {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 50%;
-  margin: auto;
-}
 
-#users td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#users tr:nth-child(even){background-color: #f2f2f2;}
-
-#users tr:hover {background-color: #ddd;}
-
-#users th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-
-body{
-  height: 100%;
-  background-color: rgb(216, 216, 216);
-  size: 100vh;
-  background-size: 100vh;
-}
-
-
-
-.card-grid{
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: var(--spacing-l);
-  grid-row-gap: var(--spacing-l);
-  max-width: var(--width-container);
-  width: 100%;
-}
-
-@media(min-width: 540px){
-  .card-grid{
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-@media(min-width: 960px){
-  .card-grid{
-    grid-template-columns: repeat(4, 1fr); 
-  }
-}
-
-.card{
-  list-style: none;
-  position: relative;
-  padding: 50%;
-  margin: 10%;
-  padding-top: 0%;
-
-}
-
-.card:before{
-  content: '';
-  display: block;
-  padding-bottom: 150%;
-  width: 100%;
-}
-
-.card__background{
-  background-size: cover;
-  background-position: center;
-  border-radius: var(--spacing-l);
-  background-repeat: no-repeat;
-  
-  bottom: 0;
-  filter: brightness(0.75) saturate(1.2) contrast(0.85);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  size: auto;
-  transform-origin: center;
-  transform: scale(1) translateZ(0);
-  transition: 
-    filter 200ms linear,
-    transform 200ms linear;
-}
-
-.card:hover .card__background{
-  transform: scale(1.05) translateZ(0);
-}
-
-.card-grid:hover > .card:not(:hover) .card__background{
-  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
-}
-
-.card__content{
-  left: 0;
-  padding: var(--spacing-l);
-  position: absolute;
-  top: 0;
-}
-
-.card__category{
-  color: #f2f2f2;
-  font-size: 0.9rem;
-  margin-bottom: var(--spacing-s);
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.card__heading{
-  color: #f2f2f2;
-  font-size: 5rem;
-  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
-  line-height: 1.4;
-  word-spacing: 100vw;
-  text-align: center
-}
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #2d2e2e;
-  color: white;
-  font-size: 30px;
-}
-</style>
-</head>
-<body>
-  <div class="header">
-    <h1>Stats</h1>
-    <p>All recent stats</p>
-  </div>
-  
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-<div class="container">
-<div style="height:50%;">
-<section class="hero-section">
-<div class="card-grid">
-  <a class="card" (click)="clicked('Cricket')">
-    <div class="card__background" style="background-image: url(assets/img/cover_1609393346cover_1596704866cover.jpg)" ></div>
-    <div class="card__content">
-      <p class="card__category">Category</p>
-      <h3 class="card__heading">Cricket</h3>
-    </div>
-  </a>
-  <a class="card" (click)="clicked('Football')">
-    <div class="card__background" style="background-image: url(assets/img/1000x-1.jpg)"></div>
-    <div class="card__content">
-      <p class="card__category">Category</p>
-      <h3 class="card__heading">Football</h3>
-    </div>
-  </a>  
-
-  <a class="card"  (click)="clicked('Table Tenis')">
-    <div class="card__background" style="background-image: url(assets/img/1_9JdIsCt4tZKgVz7QTTRftw.jpeg)"></div>
-    <div class="card__content">
-      <p class="card__category">Category</p>
-      <h3 class="card__heading">Table Tenis</h3>
-    </div>
-  </a>  
-
-  <a class="card" (click)="clicked('Volley Ball')">
-    <div class="card__background" style="background-image: url(assets/img/volleyball-with-net-1.jpg)"></div>
-    <div class="card__content">
-      <p class="card__category">Category</p>
-      <h3 class="card__heading">Volley ball</h3>
-    </div>
-  </a>  
-
-</div>
-
-
-</section>
-</div >
-
-<table id="users">  
-  
-  <tr>  
-     
-    <th>Name</th>  
-    <th>Sport</th>  
-    <th>Matches</th>
-    <th>Performance</th>
-    <th>Summary</th>
-    
-  </tr>  
-  
-  <tr *ngFor="let prof of profile">
-    
-    
-    <td>{{prof.name}}</td>  
-    <td>{{prof.SportsCategory}}</td>  
-    <td>{{prof.matches}}</td>  
-    <td>{{prof.Performance}}</td> 
-    <td>{{prof.Summary}}</td>   
-  
-  </tr>  
-  
-</table>
-<ng-template #loading>Loading User Data...</ng-template>
-
-<h1>COMMENTS</h1>
-<ul class="list-group" style="width: 500px;margin: 0 auto">
-    <li class="list-group-item">
-        <ul *ngFor="let c of comments">
-            <li class="list-group-item" >
-                <strong>User: {{c.user}}</strong>
-            </li>
-            <li class="list-group-item">
-                {{c.comment}}
-            </li>
-        </ul>
-    </li>
-</ul>
-
-<div *ngIf="isNotPlayer()">
-  <div style="text-align: center;">
-<input [(ngModel)]="com" type="text" class="form-control" style="height: 100px; width: 500px;margin: 0 auto;" name="Comment" ngModel placeholder="Your Comment here" class="form-control">
-<button (click)="addcomment()" class="btn btn-primary btn-block" style="width: 500px;margin: 0 auto;" >Add Comment</button>
-
-</div>
-</div>
-</div>
-
-</body>
-</html> -->
  <app-nav></app-nav>
-<div class="main">
+<!-- <div class="main">
 <div class="side-bar">
   <div class="card">
     <h1>
@@ -284,4 +51,141 @@ body{
 <div>
   
 </div>
-</div> 
+</div>  -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head" *ngFor="let d of biodata">
+                                    <h2>
+                                        {{d.userid.name}}
+                                    </h2>
+                                    <h4>
+                                        {{d.sport}}
+                                    </h4>
+                                    <p class="proile-rating"><span></span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button  (click)="getadd()">Add team</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"  *ngFor="let d of biodata">
+                        <div class="profile-work">
+                            <p>Bio Data</p>
+                            <a href="">Age: {{d.age}}</a><br/>
+                            <a href="">height: {{d.height}}</a><br/>
+                            <a href="">Weight: {{d.weight}}</a>
+                            <p>Sports Background</p>
+                            <a href="">Previous Clubs: {{d.preclubs}}</a><br/>
+                            <a href="">Background Details: {{d.sportsback}}</a><br/>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" *ngFor="let d of biodata">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{d.userid.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{d.userid.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>123 456 7890</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Sports Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{d.sport}}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                              <table id="customers">
+                                <tr>
+                                  <th>Match Type</th>
+                                  <th>Sport</th>
+                                  <th>Match Location</th>
+                                  <th>Performance</th>
+                                  <th>Summary/Result</th>
+                                  <th>View</th>
+                                </tr>
+                                <tr *ngFor="let prof of profile">
+                                  <td>{{prof.name}}</td>
+                                  <td>{{prof.SportsCategory}}</td>
+                                  <td>{{prof.matches}}</td>
+                                  <td>{{prof.Performance}}</td>
+                                  <td>{{prof.Summary}}</td>
+                                  <td> <a href="{{prof.link}}"><p>view</p></a></td>
+                                </tr>
+                                </table>
+                                <div class="card">
+                                  <h1>COMMENTS</h1>
+                                <ul class="list-group" style="width: 500px;margin: 0 auto">
+                                    <li class="list-group-item">
+                                        <ul *ngFor="let c of comments">
+                                            <li class="list-group-item" >
+                                                <strong>User: {{c.user}}</strong>
+                                            </li>
+                                            <li class="list-group-item">
+                                                {{c.comment}}
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div *ngIf="isNotPlayer()">
+                                  <div style="text-align: center;">
+                                <input [(ngModel)]="com" type="text" class="form-control" style="height: 100px; width: 500px;margin: 0 auto;" name="Comment" ngModel placeholder="Your Comment here" class="form-control">
+                                <button (click)="addcomment()" class="btn btn-primary btn-block" style="width: 500px;margin: 0 auto;" >Add Comment</button>
+                                  </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>

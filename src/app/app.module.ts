@@ -73,7 +73,17 @@ import { EventCalenderComponent } from './event-calender/event-calender.componen
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import { AnalyticsService } from './analytics.service';
-import { NgxChartsModule } from '@swimlane/ngx-charts'
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MyeventComponent } from './myevent/myevent.component';
+import { ApplyEventComponent } from './apply-event/apply-event.component';
+import { EventapplicantsComponent } from './eventapplicants/eventapplicants.component';
+import { EventTeamsComponent } from './event-teams/event-teams.component';
+import { ReplyeventComponent } from './replyevent/replyevent.component';
+import { UploaddataComponent } from './uploaddata/uploaddata.component';
+import { TeamComponent } from './team/team.component';
+import { TeamcreateComponent } from './teamcreate/teamcreate.component';
+import { AddteamComponent } from './addteam/addteam.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -116,6 +126,15 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     EventComponent,
     EventanalyticsComponent,
     EventCalenderComponent,
+    MyeventComponent,
+    ApplyEventComponent,
+    EventapplicantsComponent,
+    EventTeamsComponent,
+    ReplyeventComponent,
+    UploaddataComponent,
+    TeamComponent,
+    TeamcreateComponent,
+    AddteamComponent,
 
 
 
@@ -144,6 +163,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatNativeDateModule,
     MatTabsModule,
     MatBadgeModule,
+    MatSelectModule,
     FullCalendarModule,
     NgxChartsModule,
     CalendarModule.forRoot({
@@ -161,7 +181,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       { path: 'signup', component: SignupComponent },
       { path: 'signup/:id', component: SignupComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'navbar', component: NavbarComponent },
+      { path: 'navbar', component: NavbarComponent,canActivate:[AuthGuard] },
       { path: 'profile', component: ProfileComponent },
       { path: '', component: HomeComponent },
       { path: 'main', component: MainComponent },
@@ -182,6 +202,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       {path: 'event' , component: EventComponent},
       {path: 'eventanalytics' , component: EventanalyticsComponent},
       {path: 'eventcalender' , component: EventCalenderComponent},
+      {path: 'myevents' , component: MyeventComponent},
+      {path: 'eventteams' , component: EventTeamsComponent},
+      {path:'createteam',component:TeamcreateComponent},
+      {path: 'myteam', component:TeamComponent}
 
 
 

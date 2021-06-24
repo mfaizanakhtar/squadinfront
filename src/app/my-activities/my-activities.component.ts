@@ -4,6 +4,7 @@ import { ApplicantsComponent } from '../applicants/applicants.component';
 import { CreatefeedService } from '../createfeed.service';
 import { EquipService } from '../equip.service';
 import { MsgEquipmentComponent } from '../msg-equipment/msg-equipment.component';
+import { NotificationService } from '../notification.service';
 import { RespondactivityService } from '../respondactivity.service';
 import { AuthService } from '../services/auth.service';
 
@@ -16,12 +17,16 @@ export class MyActivitiesComponent implements OnInit {
   activity:any
   acceptedresponse:any
   equip:any
-  constructor(private feed:CreatefeedService,private auth:AuthService,public dialog: MatDialog,private actRes:RespondactivityService,private eq:EquipService) { }
+  not: any
+  constructor(private feed:CreatefeedService,private auth:AuthService,public dialog: MatDialog,private actRes:RespondactivityService,private eq:EquipService,
+    private no: RespondactivityService
+    ) { }
 
   ngOnInit(): void {
     this.getMyActivity()
     this.getAccepted()
     this.getEquipments()
+    this.getnot()
   }
   open(id){
     this.dialog.open(ApplicantsComponent,{
@@ -57,4 +62,12 @@ export class MyActivitiesComponent implements OnInit {
       console.log(this.equip)
     })
   }
+  getnot(){
+    this.no.getcap('noofres/'+this.auth.getCurrentUser()._id).subscribe(res=>{
+      this.not = res
+      console.log(this.not)
+    })
+  }
+  
+  
 }

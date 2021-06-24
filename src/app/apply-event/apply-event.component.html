@@ -1,0 +1,30 @@
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<div class="container">
+    <h1 style="padding-bottom: 100px;">Reequest to join event</h1>
+    
+    <mat-form-field class="field" >
+        <mat-label>Manager Name</mat-label>
+        <input [(ngModel)]="managername" matInput type="text" />
+    </mat-form-field>
+  
+    <mat-form-field >
+        <mat-label>Team Name</mat-label>
+        <textarea [(ngModel)]="teamname" matInput></textarea>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Clubname</mat-label>
+        <textarea [(ngModel)]="address" matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <textarea [(ngModel)]="address" matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+
+
+
+
+
+    <button (click)="respondevent()" class="btn-create" color="primary" mat-raised-button>Apply</button>
+
+
+</div>

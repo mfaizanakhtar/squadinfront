@@ -2,40 +2,24 @@
 <h1 style="text-align: center; margin-top: 20px;">Events</h1>
 <div class="container" style="align-items: center;display: flex; justify-content: center;">
 
-<mat-card class="example-card">
+<mat-card class="example-card" *ngFor='let e of event'>
     <div class="card-header">
           <mat-card-header>
-                <div mat-card-avatar class="example-header-image"> </div>
-                <mat-card-title></mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
-
-
-                <button mat-icon-button [matMenuTriggerFor]="menu"
-                      aria-label="Example icon-button with a menu">
-                      <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                      <button  mat-menu-item>
-                            <mat-icon>remove_done</mat-icon>
-                            <span>Remove</span>
-                      </button>
-                      <!-- <button mat-menu-item>
-                            <mat-icon>edit_not</mat-icon>
-                            <span>Edit post</span>
-                      </button> -->
-                </mat-menu>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{e.userid.name}}</mat-card-title>
+                <mat-card-subtitle>{{e.userid.userType}}</mat-card-subtitle>
           </mat-card-header>
     </div>
 
     <mat-card-content style="margin-top: 20px; margin-bottom: 30px;">
-          <div>
+          <div >
           <mat-tab-group  >
-                <mat-tab style="width: 100%;" label="Name of Event"> 
+                <mat-tab style="width: 100%;" label="Name of Event">{{e.eventname}}
                       <div class="content"></div></mat-tab>
-                <mat-tab label="Sport"></mat-tab>
-                <mat-tab label="No of Player"></mat-tab>
-                <mat-tab label="Date"></mat-tab>
-                <mat-tab label="Description"><div class="content"> </div></mat-tab>
+                <mat-tab label="Sport">{{e.EventCategory}}</mat-tab>
+                <mat-tab label="Event Date">{{e.eventDate}}</mat-tab>
+                <mat-tab label="Time of Event">{{e.eventtime}}</mat-tab>
+                <mat-tab label="Description"><div class="content"> {{e.summary}}</div></mat-tab>
               </mat-tab-group>
           </div>
      
@@ -45,7 +29,7 @@
           <!-- <button mat-button color="primary">LIKE</button>
           <button mat-button color="primary">SHARE</button> -->
           <!-- <button mat-raised-button color="primary" (click)="openDialog()">Create Activity</button> -->
-          <button (click) = "openDialog()" style="margin-left: 15px;" mat-raised-button
+          <button (click) = "openDialog(e._id)" style="margin-left: 15px;" mat-raised-button
                 color="accent">Apply for Event</button>
 
 
