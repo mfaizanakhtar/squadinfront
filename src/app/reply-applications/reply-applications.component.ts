@@ -11,7 +11,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class ReplyApplicationsComponent implements OnInit {
 
-  constructor(private notif:NotificationService,@Inject(MAT_DIALOG_DATA) public data:{id:String,userid:String},public dialog: MatDialog,private response:RespondactivityService,private auth:AuthService) { }
+  constructor(private notif:NotificationService,
+    @Inject(MAT_DIALOG_DATA) public data:{id:String,userid:String},
+    public dialog: MatDialog,
+    private response:RespondactivityService,
+    private auth:AuthService) { }
   reply:any
   uid:any
   ngOnInit(): void {

@@ -32,3 +32,4 @@ export class ApplyActivityComponent implements OnInit {
   }
 
 }
+// validation 

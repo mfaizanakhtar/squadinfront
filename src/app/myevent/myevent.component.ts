@@ -25,7 +25,7 @@ export class MyeventComponent implements OnInit {
   }
   open(id){
     this.dialog.open(EventapplicantsComponent,{
-      width:'600px',
+      width:'auto',
       data:{eventid:id}
     })
   }

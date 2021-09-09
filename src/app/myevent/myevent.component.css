@@ -9,8 +9,10 @@
      background-size: cover;
    }
    .container{
-     background-color: #f3f2ef;
-     height: 100%;
+     background-color: #ffffff;
+     
+     display: flex;
+     flex-direction: column;
      /* width: 700px; */
    }
    h1{

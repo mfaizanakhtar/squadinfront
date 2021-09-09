@@ -1,20 +1,22 @@
 <app-nav></app-nav>
 <div >
-<h1>Teams for Event </h1>
+<h1 style="margin-top: 50px;text-align: center;font-size: 50px;">Teams for Event </h1>
 <div class="container" >
     
 <table>
     <tr>
+      <th>Event Name</th>
       <th>Manager Name</th>
       <th>Team Name</th>
-      <th>Club</th>
-      <th>Address</th>
+      <th>Date</th>
+      <th>Accept Update</th>
     </tr>
     <tr *ngFor="let a of data">
       <td>{{a.eventid.eventname}}</td>
       <td>{{a.managername}}</td>
-      <td>Germany</td>
-      <td>addre</td>
+      <td>{{a.teamname}}</td>
+      <td>{{a.eventid.eventDate}}</td>
+      <td>{{a.Acceptmessage}}</td>
     </tr>
     
   </table>

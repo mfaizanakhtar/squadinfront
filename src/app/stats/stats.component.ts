@@ -25,7 +25,7 @@ import { AuthService } from '../services/auth.service';
 export class StatsComponent implements OnInit {
 
   isEditMode:boolean
-  stat:any = []
+  stat:any = {}
   id
   SportsCategory = [
     {id:1, type:"Cricket"},
@@ -70,16 +70,17 @@ export class StatsComponent implements OnInit {
   }
 
   signupUser(sf) {
-    
+    // console.log(this.stat)
     alert("Stats Updated Successfully");
     let user = {
       id: this.auth.getCurrentUser()._id,
-      name: sf.value.registration.fName,
+      name: this.auth.getCurrentUser().name,
       SportsCategory: sf.value.registration.SportsCategory,
       matches: sf.value.registration.matches,
       Performance: sf.value.registration.Performance,
       Summary: sf.value.registration.Summary,
       link: sf.value.registration.link,
+      Score:sf.value.registration.Score
       
      
      

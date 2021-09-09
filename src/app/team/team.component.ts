@@ -9,6 +9,7 @@ import { TeamService } from '../team.service';
 })
 export class TeamComponent implements OnInit {
   teams:any
+  index:any
 
   constructor(private team:TeamService,private auth:AuthService) { }
 

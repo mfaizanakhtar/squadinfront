@@ -3,7 +3,8 @@
     <button (click)="toggleWeekends()">toggle weekends</button>
     <full-calendar [options]="calendarOptions"></full-calendar>
 </div> -->
-
+<h1 style="text-align: center;margin-top: 40px;font-size: 50px;">Event Calender</h1>
+<div class="container">
 <div class="row text-center">
     <div class="col-md-4">
       <div class="btn-group">
@@ -115,7 +116,7 @@
         <th>Primary color</th>
         <th>Secondary color</th>
         <th>Starts at</th>
-        <th>Ends at</th>
+        
         <th>Remove</th>
       </tr>
     </thead>
@@ -156,18 +157,7 @@
             placeholder="Not set"
           />
         </td>
-        <td>
-          <input
-            class="form-control"
-            type="text"
-            mwlFlatpickr
-            [(ngModel)]="event.end"
-            (ngModelChange)="refresh.next()"
-            dateFormat="Y-m-dTH:i"
-            altFormat="F j, Y H:i"
-            placeholder="Not set"
-          />
-        </td>
+       
         <td>
           <button class="btn btn-danger" (click)="deleteEvent(event)">
             Delete
@@ -201,3 +191,4 @@
     </button>
   </div>
 </ng-template>
+</div>

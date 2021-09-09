@@ -114,7 +114,7 @@ DataAdd(sport){
 getmydata(){
   this.bdata.getcap('bio/'+this.user).subscribe(res=>{
     this.biodata = res
-    console.log(this.biodata);
+    console.log("data",this.biodata);
     
   })
 }

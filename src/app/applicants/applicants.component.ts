@@ -38,5 +38,6 @@ export class ApplicantsComponent implements OnInit {
     this.dialog.open(ReplyApplicationsComponent,{
       data:{id:responseid,userid:userid}
     })
+    alert('sent')
   }
 }

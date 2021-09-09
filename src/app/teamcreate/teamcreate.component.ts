@@ -15,8 +15,10 @@ export class TeamcreateComponent implements OnInit {
   ngOnInit(): void {
   }
   createteam(){
+    alert('Team Created')
     this.team.create({userid:this.Auth.getCurrentUser()._id,teamname:this.teamname}).subscribe(res=>{
       console.log(res)
+      
     })
   }
 }

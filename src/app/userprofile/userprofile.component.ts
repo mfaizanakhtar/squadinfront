@@ -88,7 +88,9 @@ export class UserprofileComponent implements OnInit {
 
   updatestat(user){
     const dialog = this.dialog.open(StatsComponent,{
-      width:'600px'
+      width:'600px',
+      height: '80%'
+
     })
   }
 

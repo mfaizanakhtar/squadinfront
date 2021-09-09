@@ -36,9 +36,12 @@ export class EventapplicantsComponent implements OnInit {
   }
 
   open(eventid,userid){
+    
     this.dialog.open(ReplyeventComponent,{
       data:{id:eventid,userid:userid}
+      
     })
+    alert('Sent')
   }
 
 }

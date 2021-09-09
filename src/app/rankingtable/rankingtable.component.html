@@ -1,0 +1,43 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <header>
+<h1>Players Ranking</h1>
+    </header>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select Sports</mat-label>
+      <mat-select [(value)]="selectedSports" (selectionChange)="sportsSelected()">
+        <mat-option value="Cricket">Cricket</mat-option>
+        <mat-option value="Football">Football</mat-option>
+        <mat-option value="Volley ball">Volley ball</mat-option>
+        <mat-option value="Table Tenis">Table Tenis</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Rank</th>
+                    <th>Player Id</th>
+                    <!-- <th>Sports</th> -->
+                    <th>Points</th>
+                    <!-- <th>+/-</th> -->
+                </tr>
+            </thead>
+            <tbody>
+      <tr *ngFor="let r of ranking;let i=index" (click)="viewDetail(r)">
+        <td><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="loading"
+          class="rounded-circle" width="50"></td>
+        <td class="rank">{{i+1}}</td>
+        <td class="team">{{r.name}}</td>
+        <td class="points">{{r.Average}}</td>
+        <!-- <td class="up-down">0</td> -->
+      </tr>
+              </tbody>
+        </table>
+    </div>
+</div>

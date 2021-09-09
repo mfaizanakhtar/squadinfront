@@ -9,7 +9,9 @@ import { AuthService } from '../services/auth.service';
 })
 export class ReplyeventComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:{id:String,userid:String},public dialog: MatDialog,private response:RepondeventService,private auth:AuthService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:{id:String,userid:String},
+  public dialog: MatDialog,private response:RepondeventService,
+  private auth:AuthService) { }
   reply: any
   uid:any
   ngOnInit(): void {

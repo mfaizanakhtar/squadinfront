@@ -27,7 +27,7 @@ export class EventTeamsComponent implements OnInit {
   }
 
   getteams(){
-    this.event.getcap('accepteduser/'+this.auth.getCurrentUser()._id).subscribe(res=>{
+    this.event.getAll().subscribe(res=>{
       this.data = res;
       console.log(this.data)
     })

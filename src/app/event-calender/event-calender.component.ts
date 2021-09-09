@@ -166,7 +166,9 @@ export class EventCalenderComponent implements OnInit {
   }
 
   addEvent(): void {
-    const dialogRef = this.dialog.open(CreateeventComponent)
+    const dialogRef = this.dialog.open(CreateeventComponent,{
+      width:'600px'
+    })
     dialogRef.afterClosed().subscribe(()=>{
       this.fetchEvents()
     })

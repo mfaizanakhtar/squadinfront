@@ -1,21 +1,22 @@
 <app-nav></app-nav>
+
+<h1 style="text-align: center;margin-top: 50px;font-size: 50px;">Teams For Events</h1>
+<div class="main">
 <div *ngFor="let team of teams">
-<h1>{{team.teamname}}</h1>
+<h1 style="text-align: center;margin-top: 50px;font-size: 30px;">{{team.teamname}}</h1>
+<div class="center">
 <table id="customers">
-    
     <tr>
-    
+        <Th>S.no</Th>
       <th>Team Member Name</th>
- 
-      <th>View Profile</th>
+      <th>Player Email</th>
     </tr>
-    <tr *ngFor="let member of team.teammembers">
-      
+    <tr *ngFor="let member of team.teammembers; let i= index">
+        <td>{{ i +1 }}</td>
       <td>{{member.name}}</td>
       <td>{{member.email}}</td>
-      <td>{{member.usertype}}</td>
-   
     </tr>
     </table>
-
+</div>
+</div>
 </div>

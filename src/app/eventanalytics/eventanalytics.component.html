@@ -1,25 +1,17 @@
 <app-nav></app-nav>
-
+<h1>Analytics DashBoard</h1>
 <!-- <div>
   <canvas id="myChart" width="400" height="400"></canvas>
 </div> -->
-<div style="margin-top: 100px;display: flex;align-items: center;justify-content: center;">
-<ngx-charts-pie-chart 
-    [results]="userdata"
-    [legend]="true"
-    [legendTitle]="'Users Report'" 
-    [view]="[700,300]"
-    [labels]="true" >
-</ngx-charts-pie-chart>
-</div>
+<div class="data" style="margin-top: 100px;display: flex;align-items: center;justify-content: center;background-color: rgb(255, 255, 255);">
 
 
 <ngx-charts-bar-vertical 
     [view]="[1000,400]"
     [results]="sportsdata"
-    [xAxisLabel]="'Products'"
-    [legendTitle]="'Product Sale Chart'"
-    [yAxisLabel]="'Sale'"
+    [xAxisLabel]="'Sports Categories'"
+    [legendTitle]="'Players Interest chart'"
+    [yAxisLabel]="'No of Player'"
     [legend]="true"
     [showXAxisLabel]="true"
     [showYAxisLabel]="true"
@@ -27,3 +19,13 @@
     [yAxis]="true"
     [gradient]="true">
 </ngx-charts-bar-vertical>
+
+<ngx-charts-pie-chart 
+    [results]="userdata"
+    [legend]="true"
+    [legendTitle]="'Users Report'" 
+    [view]="[1000,400]"
+    [labels]="true" >
+</ngx-charts-pie-chart>
+
+</div>

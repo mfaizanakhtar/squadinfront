@@ -84,7 +84,7 @@ import { TeamComponent } from './team/team.component';
 import { TeamcreateComponent } from './teamcreate/teamcreate.component';
 import { AddteamComponent } from './addteam/addteam.component';
 import {MatSelectModule} from '@angular/material/select';
-
+import { RankingtableComponent } from './rankingtable/rankingtable.component';
 
 
 
@@ -135,6 +135,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     TeamComponent,
     TeamcreateComponent,
     AddteamComponent,
+    RankingtableComponent,
 
 
 
@@ -185,27 +186,28 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       { path: 'profile', component: ProfileComponent },
       { path: '', component: HomeComponent },
       { path: 'main', component: MainComponent },
-      { path: 'userdata', component: UserdataComponent },
-      { path: 'nav', component: NavComponent },
-      { path: 'stats', component: StatsComponent },
-      { path: 'showstats/:id', component: ShowstatsComponent },
-      { path: 'chat', component: ChatComponent },
-      { path: 'watchplayer', component: WatchplayerComponent },
-      { path: 'userprofile', component: UserprofileComponent },
-      { path: 'feed', component: FeedComponent },
-      { path: 'equipments', component: EquipmentComponent },
-      { path: 'activity', component: ActivityComponent },
-      { path: 'createactivity', component: CreateactivityComponent },
-      { path: 'myactivity', component: MyActivitiesComponent },
-      { path: 'equipment', component: EquipmentComponent },
-      { path: 'createevent', component: CreateeventComponent},
-      {path: 'event' , component: EventComponent},
-      {path: 'eventanalytics' , component: EventanalyticsComponent},
-      {path: 'eventcalender' , component: EventCalenderComponent},
-      {path: 'myevents' , component: MyeventComponent},
+      { path: 'userdata', component: UserdataComponent,canActivate:[AuthGuard]  },
+      { path: 'nav', component: NavComponent,canActivate:[AuthGuard]  },
+      { path: 'stats', component: StatsComponent,canActivate:[AuthGuard]  },
+      { path: 'showstats/:id', component: ShowstatsComponent,canActivate:[AuthGuard]  },
+      { path: 'chat', component: ChatComponent,canActivate:[AuthGuard]  },
+      { path: 'watchplayer', component: WatchplayerComponent,canActivate:[AuthGuard]  },
+      { path: 'userprofile', component: UserprofileComponent,canActivate:[AuthGuard]  },
+      { path: 'feed', component: FeedComponent,canActivate:[AuthGuard]  },
+      { path: 'equipments', component: EquipmentComponent,canActivate:[AuthGuard]  },
+      { path: 'activity', component: ActivityComponent,canActivate:[AuthGuard]  },
+      { path: 'createactivity', component: CreateactivityComponent,canActivate:[AuthGuard]  },
+      { path: 'myactivity', component: MyActivitiesComponent,canActivate:[AuthGuard]  },
+      { path: 'equipment', component: EquipmentComponent,canActivate:[AuthGuard]  },
+      { path: 'createevent', component: CreateeventComponent,canActivate:[AuthGuard] },
+      {path: 'event' , component: EventComponent,canActivate:[AuthGuard] },
+      {path: 'eventanalytics' , component: EventanalyticsComponent,canActivate:[AuthGuard] },
+      {path: 'eventcalender' , component: EventCalenderComponent,canActivate:[AuthGuard] },
+      {path: 'myevents' , component: MyeventComponent,canActivate:[AuthGuard] },
       {path: 'eventteams' , component: EventTeamsComponent},
-      {path:'createteam',component:TeamcreateComponent},
-      {path: 'myteam', component:TeamComponent}
+      {path:'createteam',component:TeamcreateComponent,canActivate:[AuthGuard] },
+      {path:'rankingtable',component:RankingtableComponent,canActivate:[AuthGuard] },
+      {path: 'myteam', component:TeamComponent,canActivate:[AuthGuard] }
 
 
 
