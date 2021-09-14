@@ -33,4 +33,11 @@ export class RankingtableComponent implements OnInit {
     this.router.navigate(['/showstats', user._id]);
   }
 
+  report(reason,id){
+    this.stat.update({reason:reason},"/report",id).subscribe(res=>{
+      console.log(res)
+      this.getAverageStats()
+    })
+  }
+
 }

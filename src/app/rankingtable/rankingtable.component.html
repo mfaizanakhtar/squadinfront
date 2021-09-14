@@ -25,16 +25,31 @@
                     <th>Player Id</th>
                     <!-- <th>Sports</th> -->
                     <th>Points</th>
-                    <!-- <th>+/-</th> -->
+                    <th>Report</th>
                 </tr>
             </thead>
             <tbody>
-      <tr *ngFor="let r of ranking;let i=index" (click)="viewDetail(r)">
+      <tr *ngFor="let r of ranking;let i=index">
         <td><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="loading"
           class="rounded-circle" width="50"></td>
-        <td class="rank">{{i+1}}</td>
-        <td class="team">{{r.name}}</td>
-        <td class="points">{{r.Average}}</td>
+        <td class="rank" [ngClass]="{'textcolorclass':r.reported}">{{i+1}}</td>
+        <td class="team" [ngClass]="{'textcolorclass':r.reported}"><a (click)="viewDetail(r)">{{r.name}}</a></td>
+        <td class="points" [ngClass]="{'textcolorclass':r.reported}">{{r.Average}}</td>
+        <td>
+          <div *ngIf="r.reported!=true">
+          <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Report</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="report('Incorrect Stats',r._id)">Incorrect Stats</button>
+            <button mat-menu-item (click)="report('Incorrect Matches',r._id)">Incorrect Matches</button>
+            <!-- <button mat-menu-item (click)="report('withdraw',r._id)">Withdraw Report</button> -->
+          </mat-menu>
+        </div>
+        <div *ngIf="r.reported==true" style="display: flex;flex-wrap: wrap;">
+          <h6>Reason:{{r.reportReason}}</h6>
+          <button mat-raised-button color="primary" (click)="report('withdraw',r._id)">Withdraw Report</button>
+        </div>
+        
+        </td>
         <!-- <td class="up-down">0</td> -->
       </tr>
               </tbody>
