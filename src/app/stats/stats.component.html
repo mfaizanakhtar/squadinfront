@@ -27,7 +27,7 @@
                         <label *ngIf="stat.SportsCategory=='Football'" for="Summary" class="for">Goals</label>
                         <label *ngIf="stat.SportsCategory=='Volley ball'" for="Summary" class="for">MatchSets</label>
                         <label *ngIf="stat.SportsCategory=='Table Tenis'" for="Summary" class="for">MatchSets</label>
-                        <input *ngIf="stat.SportsCategory!=null"required [(ngModel)]="stat.Score"  name="Score" #Summary="ngModel" type="text" id="Score" class="form-control">
+                        <input *ngIf="stat.SportsCategory!=null"required [(ngModel)]="stat.Score"  name="Score" #Summary="ngModel" type="number" id="Score" class="form-control">
                         
                         
                     </div>
@@ -38,8 +38,13 @@
                         
                     </div>
                     <div class="form-group">
+
                         <label for="link" class="for">Link for this match</label>
-                        <input required [(ngModel)]="stat.link"  name="link" #link="ngModel" type="text" id="link" class="form-control">
+                        <input required [(ngModel)]="stat.link"  name="link" #link="ngModel" type="url" id="link" class="form-control">
+                        <div class="alert alert-danger" *ngIf="fName.touched && isUrlValid()">
+
+                        </div>
+                        
                         
                         
                     </div>

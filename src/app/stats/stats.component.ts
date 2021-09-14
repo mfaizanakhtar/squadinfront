@@ -15,6 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { staticNever } from 'rxjs-compat/add/observable/never';
 import { AuthService } from '../services/auth.service';
+import { Validators } from '@angular/forms';
 
 
 @Component({
@@ -69,6 +70,13 @@ export class StatsComponent implements OnInit {
       
   }
 
+  isUrlValid(){
+    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+    var result = Validators.pattern(reg)
+    console.log(result)
+    return !result
+  }
+
   signupUser(sf) {
     // console.log(this.stat)
     alert("Stats Updated Successfully");
@@ -95,7 +103,7 @@ export class StatsComponent implements OnInit {
             this.toastr.error('Incorrect Inputs');
           else
             throw error
-       }
+       } 
     )
     
     sf.reset();
